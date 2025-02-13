@@ -490,7 +490,7 @@
                                 <div class="detail"> <span
                                         class="fas fa-piggy-bank image-block imaged w48 text-warning"></span>
                                     <div> <strong>Auto Save</strong>
-                                        <p>Set a goal, save automatically with First Citizens Bank's Auto Save and
+                                        <p>Set a goal, save automatically with Everguard Trust Bank's Auto Save and
                                             track your progress.
                                         </p>
                                     </div>

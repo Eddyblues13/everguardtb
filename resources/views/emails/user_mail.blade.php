@@ -66,10 +66,10 @@
             <p>Dear User,</p>
             <p>{!! nl2br(e($messageBody)) !!}</p>
             <p>Best Regards,</p>
-            <p><strong>Integrity Equity Trade Market (IETM)</strong></p>
+            <p><strong>Everguard Trust Bank</strong></p>
         </div>
         <div class="footer">
-            <p>&copy; {{ date('Y') }} Integrity Equity Trade Market (IETM). All rights reserved.</p>
+            <p>&copy; {{ date('Y') }} Everguard Trust Bank. All rights reserved.</p>
         </div>
     </div>
 </body>

@@ -6,18 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
-        Account | First Citizens Bank </title>
-    <meta property="og:title" content="First Citizens Bank">
-    <meta name="author" content="First Citizens Bank">
+        Account | Everguard Trust Bank </title>
+    <meta property="og:title" content="Everguard Trust Bank">
+    <meta name="author" content="Everguard Trust Bank">
     <meta name="description" content="Mobile Banking, Credit Cards, Mortgages, Auto Loan">
     <meta name="keywords" content="First Citizen Bank">
     <meta property="og:locale" content="en_US">
     <meta property="og:description" content="Mobile Banking, Credit Cards, Mortgages, Auto Loan">
     <meta name="og:keywords" content="First Citizen Bank">
-    <meta property="og:url" content="https://fccub.com">
-    <meta property="og:site_name" content="First Citizens Bank">
+    <meta property="og:url" content="https://everguardtb.com">
+    <meta property="og:site_name" content="Everguard Trust Bank">
     <meta property="og:image" content="uploads/1732120398_9246d68f4286a8f5f032.png" />
-    <link rel="canonical" href="https://fccub.com">
+    <link rel="canonical" href="https://everguardtb.com">
     <!-- favicon & bookmark -->
     <link rel="apple-touch-icon" sizes="144x144" href="uploads/1732120398_9246d68f4286a8f5f032.png">
     <link rel="shortcut icon" href="uploads/1732120398_9246d68f4286a8f5f032.png">
@@ -168,8 +168,8 @@
             </script>
             <script src="https://cdn.gtranslate.net/widgets/latest/popup.js" defer></script>
         </div>
-        <div class="pageTitle"> <a href="user"><img src="uploads/1732120398_9246d68f4286a8f5f032.png" alt="logo"
-                    class="logo"></a>
+        <div class="pageTitle">
+            <a href="user"><img src="{{asset('uploads/logo.png')}}" alt="logo" class="logo"></a>
         </div>
         <div class="right">
             <a href="#" class="headerButton" data-bs-toggle="modal" data-bs-target="#ProfileModal"> <img

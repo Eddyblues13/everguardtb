@@ -420,7 +420,7 @@
                     <tr>
                         <td class="email-masthead">
                             <a href="'.$site_url.'" class="">
-                                <img src="{{asset('static/logo.png')}}" class="email-masthead_logo">
+                                <img src="{{{asset('uploads/logo.png')}}}" class="email-masthead_logo">
                             </a>
                         </td>
                     </tr>
@@ -471,7 +471,7 @@
                                         <p class="f-fallback sub align-center">&copy; https://astracointrading.com/ All
                                             rights reserved.</p>
                                         <p class="f-fallback sub align-center">
-                                            Integrity Equity Trade Market (IETM)
+                                            Everguard Trust Bank
                                             <br>https://astracointrading.com/
                                         </p>
                                     </td>

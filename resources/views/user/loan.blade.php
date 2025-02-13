@@ -84,14 +84,14 @@
                         <div class="card">
                             <div class="card-header">
                                 <p><span class="text-primary">Your home journey starts here.</span> Let
-                                    First Citizens Bank be your partner
+                                    Everguard Trust Bank be your partner
                                 </p>
                                 <p></p>
                             </div>
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-lg-4">
-                                        <img src="https://fccub.com/themes/finapp-light/images/happyhome.png"
+                                        <img src="https://everguardtb.com/themes/finapp-light/images/happyhome.png"
                                             width="100%" />
                                     </div>
                                     <div class="col-lg-8">
@@ -122,7 +122,7 @@
                                         <a href="{{route('loan.history')}}">Click here to apply</a>
                                     </div>
                                     <div class="col-lg-4">
-                                        <img src="https://fccub.com/themes/finapp-light/images/mortgage.png"
+                                        <img src="https://everguardtb.com/themes/finapp-light/images/mortgage.png"
                                             width="100%" />
                                     </div>
                                 </div>
@@ -143,7 +143,7 @@
                         <div class="wrapper">
                             <div class="credit-card-wrap">
                                 <div class="credit-card-inner">
-                                    <img src="https://fccub.com/uploads/1732120398_9246d68f4286a8f5f032.png"
+                                    <img src="https://everguardtb.com/uploads/1732120398_9246d68f4286a8f5f032.png"
                                         class="pull-right sitelogo">
                                     <div class="mk-icon-sim"></div>
                                     <div class="credit-font credit-card-number" data-text="">4716 XXXX XXXX
@@ -181,7 +181,7 @@
                                         class="fas fa-piggy-bank image-block imaged w48 text-warning"></span>
                                     <div> <strong>Auto Save</strong>
                                         <p>Set a goal, save automatically with
-                                            First Citizens Bank's Auto Save and track your progress.
+                                            Everguard Trust Bank's Auto Save and track your progress.
                                         </p>
                                     </div>
                                 </div>

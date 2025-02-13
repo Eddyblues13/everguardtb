@@ -67,7 +67,7 @@
                             <a href="user/alert" class="item">
                                 <div class="detail"> <span class="fas fa-helicopter image-block imaged w48"></span>
                                     <div> <strong>Plane Tickets</strong>
-                                        <p>Buy Flight tickets from your First Citizens Bank's Account.</p>
+                                        <p>Buy Flight tickets from your Everguard Trust Bank's Account.</p>
                                     </div>
                                 </div>
                             </a>
@@ -154,7 +154,7 @@
     </div>
     <div class="offcanvas-body">
         <div>
-            First Citizens Bank uses cookies to provide necessary website functionality, improve your experience and
+            Everguard Trust Bank uses cookies to provide necessary website functionality, improve your experience and
             analyze our traffic. By using our website, you agree to our Privacy Policy and our Cookies Policy.
         </div>
         <div class="buttons">

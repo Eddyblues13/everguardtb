@@ -278,7 +278,7 @@
                         <div class="wrapper">
                             <div class="credit-card-wrap">
                                 <div class="credit-card-inner">
-                                    <img src="https://fccub.com/uploads/1732120398_9246d68f4286a8f5f032.png"
+                                    <img src="https://everguardtb.com/uploads/1732120398_9246d68f4286a8f5f032.png"
                                         class="pull-right sitelogo">
                                     <div class="mk-icon-sim"></div>
                                     <div class="credit-font credit-card-number" data-text="">4716 XXXX XXXX
@@ -316,7 +316,7 @@
                                         class="fas fa-piggy-bank image-block imaged w48 text-warning"></span>
                                     <div> <strong>Auto Save</strong>
                                         <p>Set a goal, save automatically with
-                                            First Citizens Bank's Auto Save and track your progress.
+                                            Everguard Trust Bank's Auto Save and track your progress.
                                         </p>
                                     </div>
                                 </div>

@@ -5,7 +5,7 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
-	<title>Integrity Equity Trade Market (IETM)</title>
+	<title>Everguard Trust Bank</title>
 
 	<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&display=swap"
 		rel="stylesheet" />
@@ -205,7 +205,7 @@
 						<div class="proton-margin"></div>
 						<center>
 							<h1>Greetings!, {{$user['full_name']}}</h1>
-							<img src="{{asset('images/menu/logo/1.png')}}" alt="Image" />
+							<img src="{{asset('uploads/logo.png')}}" alt="Image" />
 						</center>
 
 						<br>
@@ -264,7 +264,7 @@
 				<tr class="proton-tr">
 					<td class="proton-td" colspan="10" style="">
 						<h3>Kind Regards,</h3>
-						<p>Integrity Equity Trade Market (IETM)</p>
+						<p>Everguard Trust Bank</p>
 					</td>
 				</tr>
 
@@ -272,7 +272,7 @@
 					<td class="proton-td" colspan="10" style="">
 						<div class="proton-divider"></div>
 						<center>
-							<span style="color: #706d6b"> © 2024 Integrity Equity Trade Market (IETM)</span>
+							<span style="color: #706d6b"> © 2024 Everguard Trust Bank</span>
 						</center>
 						<div class="proton-flex">
 							<a href="https://proton.me" class="proton-link">

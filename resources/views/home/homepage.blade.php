@@ -1,5 +1,5 @@
 @include("home.header")
-      <div class="l-content-wrap u-cf">
+<div class="l-content-wrap u-cf">
     <div class="l-1-col-master u-cf">
         <main class="l-content-primary">
             <div class='body-content js-body-content'>
@@ -23,8 +23,10 @@
                     <div class="main-hero__container lazyload" data-expand="-50">
                         <div class='main-hero__content l-contain'>
                             <div class='main-hero__header'>
-                                <p class='main-hero__title' id="main-hero-title">First Citizens Bank</p>
-                                <p class='main-hero__subtitle'>We do banking differently. We believe that people come first, and that everyone deserves a great experience every step of the way – whether it’s face to face, over the phone, online or on our app.</p>
+                                <p class='main-hero__title' id="main-hero-title">Everguard Trust Bank</p>
+                                <p class='main-hero__subtitle'>We do banking differently. We believe that people come
+                                    first, and that everyone deserves a great experience every step of the way – whether
+                                    it’s face to face, over the phone, online or on our app.</p>
                             </div>
 
                             <!--ul class='main-hero__btns mt-4'>
@@ -61,8 +63,8 @@
                                         <dt>Saturday:</dt>
                                         <dd>9:00 a.m.-1:00 p.m.</dd>
                                     </dl>
-                                    <a class="button--navy-outline"
-                                        href="mailto:support@fccub.com">Schedule an Appointment</a>
+                                    <a class="button--navy-outline" href="mailto:support@everguardtb.com">Schedule an
+                                        Appointment</a>
                                 </div>
                             </li>
                         </ul>
@@ -99,8 +101,7 @@
                                                                 <div class="rates-hero__rate">
                                                                     <div class="rates-hero__rate-amt">
                                                                         3.75%<span>APY</span></div>
-                                                                    <a href="#"
-                                                                        class="rates-hero__rate-desc">
+                                                                    <a href="#" class="rates-hero__rate-desc">
                                                                         High Yield Savings Account
                                                                     </a>
                                                                     <div class="rates-hero__rate-card">
@@ -115,8 +116,7 @@
                                                                 <div class="rates-hero__rate">
                                                                     <div class="rates-hero__rate-amt">
                                                                         3.65%<span>APY</span></div>
-                                                                    <a href="#"
-                                                                        class="rates-hero__rate-desc">
+                                                                    <a href="#" class="rates-hero__rate-desc">
                                                                         18 Month Certificate
                                                                     </a>
                                                                     <div class="rates-hero__rate-card">
@@ -131,8 +131,7 @@
                                                                 <div class="rates-hero__rate">
                                                                     <div class="rates-hero__rate-amt">
                                                                         4.00%<span>APY</span></div>
-                                                                    <a href="#"
-                                                                        class="rates-hero__rate-desc">
+                                                                    <a href="#" class="rates-hero__rate-desc">
                                                                         36 Month Certificate
                                                                     </a>
                                                                     <div class="rates-hero__rate-card">
@@ -148,8 +147,7 @@
                                                                     <div class="rates-hero__rate-pre">AS LOW AS</div>
                                                                     <div class="rates-hero__rate-amt">
                                                                         15.49%<span>APR</span></div>
-                                                                    <a href="#"
-                                                                        class="rates-hero__rate-desc">
+                                                                    <a href="#" class="rates-hero__rate-desc">
                                                                         Cash Rewards Mastercard
                                                                     </a>
                                                                     <div class="rates-hero__rate-card">
@@ -168,8 +166,7 @@
                                                                 <div class="rates-hero__rate">
                                                                     <div class="rates-hero__rate-amt">
                                                                         3.75%<span>APY</span></div>
-                                                                    <a href="#"
-                                                                        class="rates-hero__rate-desc">
+                                                                    <a href="#" class="rates-hero__rate-desc">
                                                                         High Yield Savings Account
                                                                     </a>
                                                                     <div class="rates-hero__rate-card">
@@ -184,8 +181,7 @@
                                                                 <div class="rates-hero__rate">
                                                                     <div class="rates-hero__rate-amt">
                                                                         3.75%<span>APY</span></div>
-                                                                    <a href="#"
-                                                                        class="rates-hero__rate-desc">
+                                                                    <a href="#" class="rates-hero__rate-desc">
                                                                         24 Month Certificate
                                                                     </a>
                                                                     <div class="rates-hero__rate-card">
@@ -200,8 +196,7 @@
                                                                 <div class="rates-hero__rate">
                                                                     <div class="rates-hero__rate-amt">
                                                                         4.00%<span>APY</span></div>
-                                                                    <a href="#"
-                                                                        class="rates-hero__rate-desc">
+                                                                    <a href="#" class="rates-hero__rate-desc">
                                                                         36 Month Certificate
                                                                     </a>
                                                                     <div class="rates-hero__rate-card">
@@ -216,8 +211,7 @@
                                                                 <div class="rates-hero__rate">
                                                                     <div class="rates-hero__rate-amt">
                                                                         4.20%<span>APY</span></div>
-                                                                    <a href="#"
-                                                                        class="rates-hero__rate-desc">
+                                                                    <a href="#" class="rates-hero__rate-desc">
                                                                         60 Month Certificate
                                                                     </a>
                                                                     <div class="rates-hero__rate-card">
@@ -237,8 +231,7 @@
                                                                     <div class="rates-hero__rate-pre">AS LOW AS</div>
                                                                     <div class="rates-hero__rate-amt">
                                                                         15.49%<span>APR</span></div>
-                                                                    <a href="#"
-                                                                        class="rates-hero__rate-desc">
+                                                                    <a href="#" class="rates-hero__rate-desc">
                                                                         Cash Rewards Mastercard
                                                                     </a>
                                                                     <div class="rates-hero__rate-card">
@@ -254,8 +247,7 @@
                                                                     <div class="rates-hero__rate-pre">AS LOW AS</div>
                                                                     <div class="rates-hero__rate-amt">
                                                                         9.99%<span>APR</span></div>
-                                                                    <a href="#"
-                                                                        class="rates-hero__rate-desc">
+                                                                    <a href="#" class="rates-hero__rate-desc">
                                                                         Rewards Mastercard
                                                                     </a>
                                                                     <div class="rates-hero__rate-card">
@@ -271,8 +263,7 @@
                                                                     <div class="rates-hero__rate-pre">AS LOW AS</div>
                                                                     <div class="rates-hero__rate-amt">
                                                                         11.49%<span>APR</span></div>
-                                                                    <a href="#"
-                                                                        class="rates-hero__rate-desc">
+                                                                    <a href="#" class="rates-hero__rate-desc">
                                                                         Choice Mastercard
                                                                     </a>
                                                                     <div class="rates-hero__rate-card">
@@ -288,8 +279,7 @@
                                                                     <div class="rates-hero__rate-pre">AS LOW AS</div>
                                                                     <div class="rates-hero__rate-amt">
                                                                         14.49%<span>APR</span></div>
-                                                                    <a href="#"
-                                                                        class="rates-hero__rate-desc">
+                                                                    <a href="#" class="rates-hero__rate-desc">
                                                                         World Mastercard
                                                                     </a>
                                                                     <div class="rates-hero__rate-card">
@@ -309,8 +299,7 @@
                                                                     <div class="rates-hero__rate-pre">AS LOW AS</div>
                                                                     <div class="rates-hero__rate-amt">
                                                                         5.89%<span>APR</span></div>
-                                                                    <a href="#"
-                                                                        class="rates-hero__rate-desc">
+                                                                    <a href="#" class="rates-hero__rate-desc">
                                                                         New Auto - Up to 66 Months
                                                                     </a>
                                                                     <div class="rates-hero__rate-card">
@@ -326,8 +315,7 @@
                                                                     <div class="rates-hero__rate-pre">AS LOW AS</div>
                                                                     <div class="rates-hero__rate-amt">
                                                                         6.19%<span>APR</span></div>
-                                                                    <a href="#"
-                                                                        class="rates-hero__rate-desc">
+                                                                    <a href="#" class="rates-hero__rate-desc">
                                                                         Used - Up to 66 Months
                                                                     </a>
                                                                     <div class="rates-hero__rate-card">
@@ -343,8 +331,7 @@
                                                                     <div class="rates-hero__rate-pre">AS LOW AS</div>
                                                                     <div class="rates-hero__rate-amt">
                                                                         11.99%<span>APR</span></div>
-                                                                    <a href="#"
-                                                                        class="rates-hero__rate-desc">
+                                                                    <a href="#" class="rates-hero__rate-desc">
                                                                         Personal Loan
                                                                     </a>
                                                                     <div class="rates-hero__rate-card">
@@ -360,8 +347,7 @@
                                                                     <div class="rates-hero__rate-pre">AS LOW AS</div>
                                                                     <div class="rates-hero__rate-amt">
                                                                         2.49%<span>INTRO</span></div>
-                                                                    <a href="#"
-                                                                        class="rates-hero__rate-desc">
+                                                                    <a href="#" class="rates-hero__rate-desc">
                                                                         Interest-Only HELOC
                                                                     </a>
                                                                     <div class="rates-hero__rate-card">
@@ -397,8 +383,7 @@
                                                                     <div class="rates-hero__rate-pre">AS LOW AS</div>
                                                                     <div class="rates-hero__rate-amt">
                                                                         6.875%<span>REG</span></div>
-                                                                    <a href="#"
-                                                                        class="rates-hero__rate-desc">
+                                                                    <a href="#" class="rates-hero__rate-desc">
                                                                         30 Year Purchase Rate
                                                                     </a>
                                                                     <div class="rates-hero__rate-card">
@@ -414,8 +399,7 @@
                                                                     <div class="rates-hero__rate-pre">AS LOW AS</div>
                                                                     <div class="rates-hero__rate-amt">
                                                                         6.625%<span>REG</span></div>
-                                                                    <a href="#"
-                                                                        class="rates-hero__rate-desc">
+                                                                    <a href="#" class="rates-hero__rate-desc">
                                                                         10/1 Year ARM
                                                                     </a>
                                                                     <div class="rates-hero__rate-card">
@@ -514,7 +498,7 @@
                                                 <div class="cell small-6 large-3">
                                                     <div class="tabbed-feature__link">
                                                         <a class="gtm__tabbed-feature__customer-support"
-                                                            href="mailto:support@fccub.com">
+                                                            href="mailto:support@everguardtb.com">
                                                             <span class="icon icon--solid" aria-hidden="true">
                                                                 <img src="templates/bank-pro/tabbed-icons/icon-send-message.svg"
                                                                     width="85" height="85" alt="">
@@ -525,8 +509,7 @@
                                                 </div>
                                                 <div class="cell small-6 large-3">
                                                     <div class="tabbed-feature__link">
-                                                        <a class="gtm__tabbed-feature__customer-support"
-                                                            href="tel:  ">
+                                                        <a class="gtm__tabbed-feature__customer-support" href="tel:  ">
                                                             <span class="icon icon--solid" aria-hidden="true">
                                                                 <img src="templates/bank-pro/tabbed-icons/icon-call.svg"
                                                                     width="85" height="85" alt="">
@@ -538,7 +521,7 @@
                                                 <div class="cell small-6 large-3">
                                                     <div class="tabbed-feature__link">
                                                         <a class="gtm__tabbed-feature__customer-support"
-                                                            href="mailto:support@fccub.com">
+                                                            href="mailto:support@everguardtb.com">
                                                             <span class="icon icon--solid" aria-hidden="true">
                                                                 <img src="templates/bank-pro/tabbed-icons/icon-calendar.svg"
                                                                     width="85" height="85" alt="">
@@ -599,8 +582,8 @@
                                 <div class="section-links__item">
                                     <a class="gtm__section-links" href="{{ url('/borrow') }}">
                                         <span class="icon icon--solid">
-                                            <img src="templates/bank-pro/section-links/ico-loans.svg" width="85" height="85"
-                                                alt="Loans">
+                                            <img src="templates/bank-pro/section-links/ico-loans.svg" width="85"
+                                                height="85" alt="Loans">
                                         </span>
                                         <span class="link-chevron">Loans</span>
                                     </a>
@@ -610,8 +593,8 @@
                                 <div class="section-links__item">
                                     <a class="gtm__section-links" href="{{ url('/business-banking') }}">
                                         <span class="icon icon--solid">
-                                            <img src="templates/bank-pro/section-links/ico-businessbanking.svg" width="85"
-                                                height="85" alt="business banking ">
+                                            <img src="templates/bank-pro/section-links/ico-businessbanking.svg"
+                                                width="85" height="85" alt="business banking ">
                                         </span>
                                         <span class="link-chevron">Business Banking</span>
                                     </a>
@@ -632,8 +615,8 @@
                                 <div class="section-links__item">
                                     <a class="gtm__section-links" href="{{ url("/about-us") }}">
                                         <span class="icon icon--solid">
-                                            <img src="templates/bank-pro/section-links/ico-about.svg" width="85" height="85"
-                                                alt="About First ">
+                                            <img src="templates/bank-pro/section-links/ico-about.svg" width="85"
+                                                height="85" alt="About First ">
                                         </span>
                                         <span class="link-chevron">About First</span>
                                     </a>
@@ -662,7 +645,7 @@
                                 <p class="campaign-feature__meta-text">For a limited time, get a €300 when you open any
                                     new checking account! <sup>*</sup>Select "Learn More" to
                                     see important offer details. </p>
-                              
+
                             </div>
                         </div>
                     </div>
@@ -677,8 +660,7 @@
                                 <h3 class="related-content__item-title"><a class="link-chevron"
                                         href="tax-checklist-5-things-to-remember.html"><span>Tax
                                             Checklist: 5 Things to Remember</span></a></h3>
-                                <a class="related-content__item-label"
-                                    href="#">Starting Out</a>
+                                <a class="related-content__item-label" href="#">Starting Out</a>
                                 <div class="related-content__item-excerpt">Tax season is quickly approaching&mdash;do
                                     you know what you need to claim, and what forms you need to submit? This tax
                                     checklist makes filing simple. Learn more today!</div>
@@ -695,8 +677,7 @@
                                 <h3 class="related-content__item-title"><a class="link-chevron"
                                         href="{{ url('/simple-ways') }}"><span>How to
                                             Manage Your Checking</span></a></h3>
-                                <a class="related-content__item-label"
-                                    href="#">Starting Out</a>
+                                <a class="related-content__item-label" href="#">Starting Out</a>
                             </div>
                             <div class="related-content__item-image">
                                 <div class="related-content__item-image-wrap">
@@ -710,8 +691,7 @@
                                 <h3 class="related-content__item-title"><a class="link-chevron"
                                         href="{{ url('/how-to-save') }}"><span>How to Save for
                                             Summer Vacation</span></a></h3>
-                                <a class="related-content__item-label"
-                                    href="#">Starting Out</a>
+                                <a class="related-content__item-label" href="#">Starting Out</a>
                             </div>
                             <div class="related-content__item-image">
                                 <div class="related-content__item-image-wrap">
@@ -725,8 +705,8 @@
                                 <h3 class="related-content__item-title"><a class="link-chevron"
                                         href="{{ url('/the-impact') }}"><span>How
                                             Rising Rates and Inflation Impact Businesses</span></a></h3>
-                                <a class="related-content__item-label"
-                                    href="{{ url('/the-impact') }}">Running a Business</a>
+                                <a class="related-content__item-label" href="{{ url('/the-impact') }}">Running a
+                                    Business</a>
                             </div>
                             <div class="related-content__item-image">
                                 <div class="related-content__item-image-wrap">
@@ -748,31 +728,35 @@
                             <div class="quote-slider js-quote-slider">
                                 <div class="quote-slider__slides">
 
-                                                                    <div class="quote-slider__slide js-quote-slider-slide">
+                                    <div class="quote-slider__slide js-quote-slider-slide">
                                         <blockquote class="quote u-cf">
                                             <div class="quote__content">
                                                 <div class="quote__body">
                                                     <div class="rtf">
-                                                        <p>I am impressed with the customer service and speed of payout<br></p>                                                    </div>
+                                                        <p>I am impressed with the customer service and speed of
+                                                            payout<br></p>
+                                                    </div>
                                                 </div>
                                                 <span class="quote__author u-block l-mb-1">May Morris</span>
                                             </div>
 
                                         </blockquote>
                                     </div>
-                                                                        <div class="quote-slider__slide js-quote-slider-slide">
+                                    <div class="quote-slider__slide js-quote-slider-slide">
                                         <blockquote class="quote u-cf">
                                             <div class="quote__content">
                                                 <div class="quote__body">
                                                     <div class="rtf">
-                                                        <p>All one has to do is to look at your investment to see how well it is being looked after.</p>                                                    </div>
+                                                        <p>All one has to do is to look at your investment to see how
+                                                            well it is being looked after.</p>
+                                                    </div>
                                                 </div>
                                                 <span class="quote__author u-block l-mb-1">Ted Moralee</span>
                                             </div>
 
                                         </blockquote>
                                     </div>
-                                    
+
 
                                 </div>
                                 <button type="button" class="quote-slider__prev js-quote-slider-prev">
@@ -817,7 +801,7 @@
             <div class="footer-quick-bar__text">
                 <h2 class='footer-quick-bar__item-header'><a
                         class="footer-quick-bar__item-header footer-quick-bar__item-header--phone"
-                        href="mailto:support@fccub.com">support@fccub.com</a></h2>
+                        href="mailto:support@everguardtb.com">support@everguardtb.com</a></h2>
                 <h3 class='footer-quick-bar__item-subtitle'>Customer Service</h3>
             </div>
         </div>
@@ -825,8 +809,8 @@
             <img src="templates/bank-pro/footer-images/live-video-call.png" alt="" />
             <div class="footer-quick-bar__text">
                 <h2 class='footer-quick-bar__item-header'><a
-                        class="footer-quick-bar__item-header footer-quick-bar__item-header--video"
-                        href="#" onclick="alert('Temporarily unavailable, please contact us via Email')">Video
+                        class="footer-quick-bar__item-header footer-quick-bar__item-header--video" href="#"
+                        onclick="alert('Temporarily unavailable, please contact us via Email')">Video
                         Connect</a></h2>
                 <h3 class='footer-quick-bar__item-subtitle'>Chat Virtually</h3>
             </div>

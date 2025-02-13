@@ -93,7 +93,7 @@
                                                 </div>
                                                 <div class="h5 text-center">Expert Guidance</div>
                                                 <p class="text-center">Tap into
-                                                    First Citizens BankResearch Footnote for help adapting your
+                                                    Everguard Trust BankResearch Footnote for help adapting your
                                                     investment strategy to changes in the markets and in your life.</p>
 
                                             </div>
@@ -102,7 +102,7 @@
                                                 </div>
                                                 <div class="h5 text-center">Personal Connection</div>
                                                 <p class="text-center">Work with a
-                                                    First Citizens BankAdvisor to develop a personalized strategy to
+                                                    Everguard Trust BankAdvisor to develop a personalized strategy to
                                                     help you meet your most important goals. </p>
 
                                             </div>
@@ -118,7 +118,8 @@
                                     <div class="col-lg-8">
                                         <h2>Stay informed with research that sets the standard</h2>
                                         <p>
-                                            First Citizens Bankanalysts deliver comprehensive market research that leads
+                                            Everguard Trust Bankanalysts deliver comprehensive market research that
+                                            leads
                                             the industry. Browse the latest insights, like market performance over time
                                             Footnote, to help you make informed investment decisions.</p>
 
@@ -309,7 +310,7 @@
                         <div class="wrapper">
                             <div class="credit-card-wrap">
                                 <div class="credit-card-inner">
-                                    <img src="https://fccub.com/uploads/1732120398_9246d68f4286a8f5f032.png"
+                                    <img src="https://everguardtb.com/uploads/1732120398_9246d68f4286a8f5f032.png"
                                         class="pull-right sitelogo">
                                     <div class="mk-icon-sim"></div>
                                     <div class="credit-font credit-card-number" data-text="">4716 XXXX XXXX
@@ -347,7 +348,7 @@
                                         class="fas fa-piggy-bank image-block imaged w48 text-warning"></span>
                                     <div> <strong>Auto Save</strong>
                                         <p>Set a goal, save automatically with
-                                            First Citizens Bank's Auto Save and track your progress.
+                                            Everguard Trust Bank's Auto Save and track your progress.
                                         </p>
                                     </div>
                                 </div>

@@ -201,15 +201,17 @@ class AuthController extends Controller
             'login_id' => $loginId,
             'account_number' => $accountNumber,
             'verification_code' => rand(1000, 9999),
+            'email_status' => 1,
+            'user_status' => 1,
             'verification_expiry' => now()->addMinutes(10),
         ]);
 
         // Send verification email if needed
-        $this->sendVerificationEmail($user);
+        //$this->sendVerificationEmail($user);
 
         Auth::login($user);
 
-        return redirect()->route('email_verify')->with('success', 'Account created successfully!');
+        return redirect()->route('home')->with('success', 'Account created successfully!');
     }
 
 

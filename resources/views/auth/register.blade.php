@@ -45,6 +45,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
     <!-- END PLUGINS STYLES -->
     <!-- BEGIN THEME STYLES -->
     <!---**************COLORS*****************-->
@@ -211,6 +212,17 @@
                                     <div class="col-lg-12">
 
                                         <div class="card">
+                                            @if(session('success'))
+                                            <script>
+                                                toastr.success("{{ session('success') }}");
+                                            </script>
+                                            @endif
+
+                                            @if(session('error'))
+                                            <script>
+                                                toastr.error("{{ session('error') }}");
+                                            </script>
+                                            @endif
                                             <div class="card-header">
                                                 <h4>Complete Your Enrollment</h4>
                                             </div>

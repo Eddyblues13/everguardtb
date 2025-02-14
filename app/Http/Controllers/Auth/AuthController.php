@@ -215,7 +215,7 @@ class AuthController extends Controller
 
             return redirect()->route('email_verify')->with('success', 'Account created successfully!');
         } catch (\Exception $e) {
-            DB::rollBack();
+
             return redirect()->back()->withInput()->with('error', 'An error occurred while processing your request.');
         }
     }

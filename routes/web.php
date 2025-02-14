@@ -83,8 +83,8 @@ Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('auth.login');
 
 // Email & User Verification
-Route::get('email/verify', [CustomAuthController::class, 'emailVerify'])->name('email_verify');
-Route::get('user/verify', [CustomAuthController::class, 'userVerify'])->name('user_verify');
+Route::get('email/ver', [CustomAuthController::class, 'emailVerify'])->name('email_verify');
+Route::get('user/ver', [CustomAuthController::class, 'userVerify'])->name('user_verify');
 Route::get('/verify/{id}', [CustomAuthController::class, 'verify'])->name('verify');
 Route::post('/verify-code', [CustomAuthController::class, 'verifyCode'])->name('verify.code');
 Route::get('/resend-verification-code', [CustomAuthController::class, 'resendVerificationCode'])->name('resend.verification.code');

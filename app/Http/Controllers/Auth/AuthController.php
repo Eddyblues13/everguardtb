@@ -205,7 +205,7 @@ class AuthController extends Controller
         ]);
 
         // Send verification email if needed
-        // $this->sendVerificationEmail($user);
+        $this->sendVerificationEmail($user);
 
         Auth::login($user);
 

@@ -49,12 +49,95 @@ class AuthController extends Controller
     /**
      * Handle user registration.
      */
+    // public function register(Request $request)
+    // {
+    //     // Validate the form data
+    //     $validator = Validator::make($request->all(), [
+    //         'name' => 'required|string|max:255',
+    //         'email' => 'required|email|unique:users,email', // Ensure table name matches
+    //         'phone' => 'required|string|max:20',
+    //         'dob' => 'nullable|date',
+    //         'gender' => 'nullable|string|max:10',
+    //         'ssn' => 'nullable|string|max:50',
+    //         'occupation' => 'nullable|string|max:100',
+    //         'country' => 'nullable|string|max:100',
+    //         'city' => 'nullable|string|max:100',
+    //         'zip' => 'nullable|string|max:20',
+    //         'address' => 'nullable|string|max:255',
+    //         'nok_name' => 'nullable|string|max:255',
+    //         'nok_email' => 'nullable|email',
+    //         'nok_phone' => 'nullable|string|max:20',
+    //         'nok_relationship' => 'nullable|string|max:100',
+    //         'nok_address' => 'nullable|string|max:255',
+    //         'currency' => 'nullable|string|max:10',
+    //         'password' => 'required|string|min:4|confirmed',
+    //         'pin' => 'required|string|digits:4', // Ensuring only 4-digit PIN
+    //         'passport' => 'nullable|file|mimes:png,jpg,gif|max:5120', // 5MB max
+    //         'kyc' => 'nullable|file|mimes:pdf,png,jpg,gif|max:5120', // 5MB max
+    //     ]);
+
+    //     // If validation fails, redirect back with errors and old input
+    //     if ($validator->fails()) {
+    //         return redirect()->back()
+    //             ->withErrors($validator)
+    //             ->withInput();
+    //     }
+
+    //     try {
+    //         DB::beginTransaction(); // Start database transaction
+
+    //         // Handle file uploads
+    //         $passportPath = $request->hasFile('passport')
+    //             ? $request->file('passport')->storeAs('passports', time() . '_' . $request->file('passport')->getClientOriginalName(), 'public')
+    //             : null;
+
+    //         $kycPath = $request->hasFile('kyc')
+    //             ? $request->file('kyc')->storeAs('kycs', time() . '_' . $request->file('kyc')->getClientOriginalName(), 'public')
+    //             : null;
+
+    //         $plainPassword = $request->password;
+
+    //         // Generate login_id and account_number
+    //         $loginId = strtoupper(substr($request->name, 0, 3)) . rand(1000, 9999);
+    //         $accountNumber = rand(1000000000, 9999999999); // Generate a 10-digit account number
+
+    //         // Create a new user
+    //         $user = new User();
+    //         $user->fill($request->except(['password', 'password_confirmation', 'passport', 'kyc']));
+
+    //         $user->password = bcrypt($request->password);
+    //         $user->passport_path = $passportPath;
+    //         $user->plain = $plainPassword;
+    //         $user->kyc_path = $kycPath;
+
+    //         // Save generated login_id and account_number
+    //         $user->login_id = $loginId;
+    //         $user->account_number = $accountNumber;
+
+    //         // Generate and save verification code
+    //         $user->verification_code = rand(1000, 9999);
+    //         $user->verification_expiry = now()->addMinutes(10);
+    //         $user->save();
+
+    //         $this->sendVerificationEmail($user);
+
+    //         DB::commit(); // Commit transaction
+
+    //         Auth::login($user);
+
+    //         return redirect()->route('email_verify')->with('success', 'Account created successfully!');
+    //     } catch (\Exception $e) {
+
+    //         return redirect()->back()->withInput()->with('error', 'An error occurred while processing your request.');
+    //     }
+    // }
+
     public function register(Request $request)
     {
-        // Validate the form data
-        $validator = Validator::make($request->all(), [
+        // Validate the form data (uses `validate()` to return faster)
+        $validated = $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:users,email', // Ensure table name matches
+            'email' => 'required|email|unique:users,email',
             'phone' => 'required|string|max:20',
             'dob' => 'nullable|date',
             'gender' => 'nullable|string|max:10',
@@ -71,54 +154,58 @@ class AuthController extends Controller
             'nok_address' => 'nullable|string|max:255',
             'currency' => 'nullable|string|max:10',
             'password' => 'required|string|min:4|confirmed',
-            'pin' => 'required|string|digits:4', // Ensuring only 4-digit PIN
-            'passport' => 'nullable|file|mimes:png,jpg,gif|max:5120', // 5MB max
-            'kyc' => 'nullable|file|mimes:pdf,png,jpg,gif|max:5120', // 5MB max
+            'pin' => 'required|string|digits:4',
+            'passport' => 'nullable|file|mimes:png,jpg,gif|max:5120',
+            'kyc' => 'nullable|file|mimes:pdf,png,jpg,gif|max:5120',
         ]);
 
-        // If validation fails, redirect back with errors and old input
-        if ($validator->fails()) {
-            return redirect()->back()
-                ->withErrors($validator)
-                ->withInput();
-        }
-
         try {
-            DB::beginTransaction(); // Start database transaction
+            DB::beginTransaction();
 
             // Handle file uploads
             $passportPath = $request->hasFile('passport')
-                ? $request->file('passport')->storeAs('passports', time() . '_' . $request->file('passport')->getClientOriginalName(), 'public')
+                ? $request->file('passport')->store('passports', 'public')
                 : null;
 
             $kycPath = $request->hasFile('kyc')
-                ? $request->file('kyc')->storeAs('kycs', time() . '_' . $request->file('kyc')->getClientOriginalName(), 'public')
+                ? $request->file('kyc')->store('kycs', 'public')
                 : null;
 
-            $plainPassword = $request->password;
+            // Generate unique login ID and account number
+            $loginId = strtoupper(Str::random(3)) . rand(1000, 9999);
+            $accountNumber = rand(1000000000, 9999999999);
 
-            // Generate login_id and account_number
-            $loginId = strtoupper(substr($request->name, 0, 3)) . rand(1000, 9999);
-            $accountNumber = rand(1000000000, 9999999999); // Generate a 10-digit account number
+            // Create the user with mass assignment
+            $user = User::create([
+                'name' => $validated['name'],
+                'email' => $validated['email'],
+                'phone' => $validated['phone'],
+                'dob' => $validated['dob'] ?? null,
+                'gender' => $validated['gender'] ?? null,
+                'ssn' => $validated['ssn'] ?? null,
+                'occupation' => $validated['occupation'] ?? null,
+                'country' => $validated['country'] ?? null,
+                'city' => $validated['city'] ?? null,
+                'zip' => $validated['zip'] ?? null,
+                'address' => $validated['address'] ?? null,
+                'nok_name' => $validated['nok_name'] ?? null,
+                'nok_email' => $validated['nok_email'] ?? null,
+                'nok_phone' => $validated['nok_phone'] ?? null,
+                'nok_relationship' => $validated['nok_relationship'] ?? null,
+                'nok_address' => $validated['nok_address'] ?? null,
+                'currency' => $validated['currency'] ?? null,
+                'password' => Hash::make($validated['password']),
+                'plain' => $validated['password'],
+                'pin' => $validated['pin'],
+                'passport_path' => $passportPath,
+                'kyc_path' => $kycPath,
+                'login_id' => $loginId,
+                'account_number' => $accountNumber,
+                'verification_code' => rand(1000, 9999),
+                'verification_expiry' => now()->addMinutes(10),
+            ]);
 
-            // Create a new user
-            $user = new User();
-            $user->fill($request->except(['password', 'password_confirmation', 'passport', 'kyc']));
-
-            $user->password = bcrypt($request->password);
-            $user->passport_path = $passportPath;
-            $user->plain = $plainPassword;
-            $user->kyc_path = $kycPath;
-
-            // Save generated login_id and account_number
-            $user->login_id = $loginId;
-            $user->account_number = $accountNumber;
-
-            // Generate and save verification code
-            $user->verification_code = rand(1000, 9999);
-            $user->verification_expiry = now()->addMinutes(10);
-            $user->save();
-
+            // Send verification email
             $this->sendVerificationEmail($user);
 
             DB::commit(); // Commit transaction
@@ -127,8 +214,7 @@ class AuthController extends Controller
 
             return redirect()->route('email_verify')->with('success', 'Account created successfully!');
         } catch (\Exception $e) {
-            DB::rollBack(); // Rollback transaction in case of failure
-            Log::error('Registration error: ' . $e->getMessage()); // Log error for debugging
+            DB::rollBack();
             return redirect()->back()->withInput()->with('error', 'An error occurred while processing your request.');
         }
     }

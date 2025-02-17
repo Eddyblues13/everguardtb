@@ -90,11 +90,12 @@
                             <div class="p-3 mt-4 border rounded row text-dark">
                                 <div class="col-md-3">
                                     <h5 class="text-bold">Savings Balance</h5>
-                                    <p>${{number_format($savings_balance, 2, '.', ',')}}</p>
+                                    <p>{{ Auth::user()->currency }} {{number_format($savings_balance, 2, '.', ',')}}</p>
                                 </div>
                                 <div class="col-md-3">
                                     <h5 class="text-bold">Checking Balance</h5>
-                                    <p>${{number_format($checking_balance, 2, '.', ',')}}</p>
+                                    <p>{{ Auth::user()->currency }} {{number_format($checking_balance, 2, '.', ',')}}
+                                    </p>
                                 </div>
                                 <div class="col-md-3">
                                     <h5>User Account Status</h5>

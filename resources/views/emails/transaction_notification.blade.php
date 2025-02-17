@@ -186,7 +186,7 @@
                             <p>Dear {{ $details['name'] }},</p>
                             <p>Your account has been {{ $details['transactionType'] }}ed with the following details:</p>
                             <ul>
-                                <li>Amount: ${{ $details['amount'] }}</li>
+                                <li>Amount: {{ Auth::user()->currency }} {{ $details['amount'] }}</li>
                                 <li>Category: {{ $details['transactionCategory'] }}</li>
                                 <li>Date: {{ $details['date'] }}</li>
                             </ul>

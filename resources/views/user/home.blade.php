@@ -24,6 +24,21 @@
                                     </div>
                                     <div class="bottom">
                                         <div class="card-expiry">
+                                            <span class="label">Last Login <br></span>
+                                            {{ $activity->last_login_at ?? 'N/A' }}
+                                        </div>
+                                        <div class="card-ccv">
+                                            <span class="label">Your IP address<br> </span>
+                                            @if($flagUrl)
+                                            <img src="{{ $flagUrl }}" alt="Country Flag">
+                                            @else
+                                            No Flag Available
+                                            @endif
+                                            <br>
+                                        </div>
+                                    </div>
+                                    <div class="bottom">
+                                        <div class="card-expiry">
                                             <span class="label">Total Credit <br> {{ $currentMonth }}</span>
                                             ${{ number_format($totalSavingsCredit, 2) }}
                                         </div>
@@ -49,8 +64,8 @@
                                 </div>
                                 <div class="in">
                                     <div class="card-number">
-                                        <span class="label">Account Number</span> •••• {{
-                                        substr(Auth::user()->account_number, -4) }}
+                                        <span class="label">Account Number</span> {{
+                                        Auth::user()->account_number }}
                                     </div>
                                     <div class="bottom">
                                         <div class="card-expiry">
@@ -67,7 +82,7 @@
                         </div>
                         <!-- * card block -->
                     </li>
-                    <li class="splide__slide">
+                    {{-- <li class="splide__slide">
                         <!-- card block for user activity -->
                         <div class="card-block bg-transparent border border-warning">
                             <div class="card-main">
@@ -104,7 +119,7 @@
                             </div>
                         </div>
                         <!-- * card block -->
-                    </li>
+                    </li> --}}
                 </ul>
             </div>
         </div>

@@ -37,16 +37,7 @@
                                             <br>
                                         </div>
                                     </div>
-                                    <div class="bottom">
-                                        <div class="card-expiry">
-                                            <span class="label">Total Credit <br> {{ $currentMonth }}</span>
-                                            ${{ number_format($totalSavingsCredit, 2) }}
-                                        </div>
-                                        <div class="card-ccv">
-                                            <span class="label">Total Debit<br> {{ $currentMonth }}</span>
-                                            ${{ number_format($totalSavingsDebit, 2) }}
-                                        </div>
-                                    </div>
+
                                 </div>
                             </div>
                         </div>

@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Models\User;
+use App\Models\Activity;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use App\Mail\VerificationEmail;
 use Illuminate\Validation\Rules;
 use Illuminate\Support\Facades\DB;
@@ -171,9 +173,9 @@ class AuthController extends Controller
 
         // Generate a unique login ID & account number
         $loginId = strtoupper(Str::random(3)) . rand(1000, 9999);
-      
+
         $accountNumber = rand(1000000000, 9999999999);
-       
+
 
         // Create the user
         $user = User::create([
@@ -247,6 +249,9 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
+        // Get the user agent string
+        $userAgent = $request->header('User-Agent');
+
         // Validate input
         $request->validate([
             'login' => 'required|string',
@@ -254,10 +259,20 @@ class AuthController extends Controller
         ]);
 
         // Determine if login input is an email or phone number
-        $fieldType = filter_var($request->login, FILTER_VALIDATE_EMAIL) ? 'email' : 'phone';
+        $fieldType = filter_var($request->login, FILTER_VALIDATE_EMAIL) ? 'email' : 'login_id';
 
         // Attempt login with either email or phone
         if (Auth::attempt([$fieldType => $request->login, 'password' => $request->password])) {
+            $user = Auth::user(); // Retrieve authenticated user
+
+            // Log user activity
+            Activity::create([
+                'user_id'                => $user->id,
+                'last_login_at'          => Carbon::now()->toDateTimeString(),
+                'last_login_ip'          => $request->getClientIp(),
+                'last_login_user_agent'  => $userAgent
+            ]);
+
             return redirect()->route('home')->with('success', 'Logged in successfully!'); // Redirect to dashboard
         }
 

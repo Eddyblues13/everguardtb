@@ -20,7 +20,7 @@
     <meta property="og:title" content="Home | Mobile Banking, Credit Cards, Mortgages, Auto Loan">
     <meta property="og:description" content="Mobile Banking, Credit Cards, Mortgages, Auto Loan">
     <meta property="og:url" content="https://everguardtb.com">
-    <!--<meta property="og:image" content="https://everguardtb.com/uploads/1732120398_9246d68f4286a8f5f032.png">-->
+    <!--<meta property="og:image" content="https://everguardtb.com/uploads/logo.png">-->
     <meta property="og:image" content="https://bastionbanks.com/uploads/meta.jpg">
     <meta name="twitter:card" content="summary"><!-- leave as-is -->
     <meta name="twitter:site" content="@First">
@@ -28,14 +28,14 @@
     <meta name="twitter:url" content="/">
     <meta name="twitter:title" content="Home | Mobile Banking, Credit Cards, Mortgages, Auto Loan">
     <meta name="twitter:description" content="Mobile Banking, Credit Cards, Mortgages, Auto Loan">
-    <!-- <meta name="twitter:image" content="https://everguardtb.com/uploads/1732120398_9246d68f4286a8f5f032.png">-->
+    <!-- <meta name="twitter:image" content="https://everguardtb.com/uploads/logo.png">-->
     <meta name="twitter:image" content="https://bastionbanks.com/uploads/meta.jpg>
         <!-- minimum size of 120px by 120px and must be less than 1MB in file size. -->
         <!-- The page's canonical URL (absent of query strings, hash tags, etc.) -->
         <link rel=" canonical" href="index.html">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <link rel="apple-touch-icon" href="uploads/1732120398_9246d68f4286a8f5f032.png">
-    <link rel="shortcut icon" href="uploads/1732120398_9246d68f4286a8f5f032.png">
+    <link rel="apple-touch-icon" href="uploads/logo.png">
+    <link rel="shortcut icon" href="uploads/logo.png">
 
     <!-- Start SmartBanner configuration -->
     <meta name="smartbanner:title" content="Everguard Trust Bank">
@@ -43,8 +43,8 @@
     <meta name="smartbanner:price" content="Free">
     <meta name="smartbanner:price-suffix-apple" content=" - On the App Store">
     <meta name="smartbanner:price-suffix-google" content=" - In Google Play">
-    <meta name="smartbanner:icon-apple" content="https://everguardtb.com/uploads/1732120398_9246d68f4286a8f5f032.png">
-    <meta name="smartbanner:icon-google" content="https://everguardtb.com/uploads/1732120398_9246d68f4286a8f5f032.png">
+    <meta name="smartbanner:icon-apple" content="https://everguardtb.com/uploads/logo.png">
+    <meta name="smartbanner:icon-google" content="https://everguardtb.com/uploads/logo.png">
     <meta name="smartbanner:button" content="View">
     <meta name="smartbanner:button-url-apple" content="#">
     <meta name="smartbanner:button-url-google" content="#">

@@ -18,11 +18,11 @@
     <meta name="og:keywords" content="First Citizen Bank">
     <meta property="og:url" content="https://fccub.com">
     <meta property="og:site_name" content="Everguard Trust Bank">
-    <meta property="og:image" content="https://fccub.com/uploads/1732120398_9246d68f4286a8f5f032.png" />
+    <meta property="og:image" content="https://fccub.com/uploads/logo.png" />
     <link rel="canonical" href="https://fccub.com">
     <!-- favicon & bookmark -->
-    <link rel="apple-touch-icon" sizes="144x144" href="https://fccub.com/uploads/1732120398_9246d68f4286a8f5f032.png">
-    <link rel="shortcut icon" href="https://fccub.com/uploads/1732120398_9246d68f4286a8f5f032.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="https://fccub.com/uploads/logo.png">
+    <link rel="shortcut icon" href="https://fccub.com/uploads/logo.png">
     <meta name="robots" content="index, follow" />
     <!-- Chrome, Firefox OS and Opera -->
     <meta name="theme-color" content="#3037ff">

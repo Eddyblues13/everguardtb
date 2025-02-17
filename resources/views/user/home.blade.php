@@ -11,13 +11,16 @@
                         <!-- card block -->
                         <div class="card-block bg-transparent border border-info">
                             <div class="card-main">
-                                <div class="balance"> <span class="label">SAVINGS</span>
+                                <div class="balance">
+                                    <span class="label">SAVINGS</span>
                                     <h1 class="title">
-                                        {{ number_format($savings_balance, 2) }} </h1>
+                                        {{ number_format($savings_balance, 2) }}
+                                    </h1>
                                 </div>
                                 <div class="in">
-                                    <div class="card-number"> <span class="label">Account Number</span> •••• {{
-                                        substr(Auth::user()->account_number, -4) }}
+                                    <div class="card-number">
+                                        <span class="label">Account Number</span>
+                                        {{ Auth::user()->account_number }}
                                     </div>
                                     <div class="bottom">
                                         <div class="card-expiry">
@@ -38,12 +41,15 @@
                         <!-- card block -->
                         <div class="card-block bg-transparent border border-light">
                             <div class="card-main">
-                                <div class="balance"> <span class="label">CHECKINGS</span>
+                                <div class="balance">
+                                    <span class="label">CHECKINGS</span>
                                     <h1 class="title">
-                                        {{ number_format($checking_balance, 2) }} </h1>
+                                        {{ number_format($checking_balance, 2) }}
+                                    </h1>
                                 </div>
                                 <div class="in">
-                                    <div class="card-number"> <span class="label">Account Number</span> •••• {{
+                                    <div class="card-number">
+                                        <span class="label">Account Number</span> •••• {{
                                         substr(Auth::user()->account_number, -4) }}
                                     </div>
                                     <div class="bottom">
@@ -56,7 +62,44 @@
                                             ${{ number_format($totalCheckingDebit, 2) }}
                                         </div>
                                     </div>
-
+                                </div>
+                            </div>
+                        </div>
+                        <!-- * card block -->
+                    </li>
+                    <li class="splide__slide">
+                        <!-- card block for user activity -->
+                        <div class="card-block bg-transparent border border-warning">
+                            <div class="card-main">
+                                <div class="balance">
+                                    <span class="label">Last Login Details</span>
+                                </div>
+                                <div class="in">
+                                    <div class="card-number">
+                                        <span class="label">Last Login</span>
+                                        {{ $activity->last_login_at ?? 'N/A' }}
+                                    </div>
+                                    <div class="card-number">
+                                        <span class="label">IP Address</span>
+                                        {{ $clientIpAddress }}
+                                    </div>
+                                    <div class="card-number">
+                                        <span class="label">Location</span>
+                                        {{ $location ? $location->cityName . ', ' . $location->countryName : 'Unknown'
+                                        }}
+                                    </div>
+                                    <div class="card-number">
+                                        <span class="label">User Agent</span>
+                                        {{ $activity->last_login_user_agent ?? 'N/A' }}
+                                    </div>
+                                    <div class="card-number">
+                                        <span class="label">Country Flag</span>
+                                        @if($flagUrl)
+                                        <img src="{{ $flagUrl }}" alt="Country Flag">
+                                        @else
+                                        No Flag Available
+                                        @endif
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -66,6 +109,7 @@
             </div>
         </div>
         <!-- * carousel single -->
+
     </div>
 
     <div class="card">
@@ -454,7 +498,7 @@
                         <div class="wrapper">
                             <div class="credit-card-wrap">
                                 <div class="credit-card-inner">
-                                    <img src="uploads/1732120398_9246d68f4286a8f5f032.png" class="pull-right sitelogo">
+                                    <img src="uploads/logo.png" class="pull-right sitelogo">
                                     <div class="mk-icon-sim"></div>
                                     <div class="credit-font credit-card-number" data-text="">4716 XXXX XXXX 7554
                                     </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
+use App\Models\Activity;
 use Illuminate\Http\Request;
 use App\Models\SavingsBalance;
 use App\Models\CheckingBalance;
@@ -10,10 +11,11 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use Yajra\DataTables\Facades\DataTables;
+use Stevebauman\Location\Facades\Location;
 
 class UserController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $user = Auth::user();
         $data['savings_balance'] = SavingsBalance::where('user_id', $user->id)->sum('amount');
@@ -45,6 +47,19 @@ class UserController extends Controller
             ->whereYear('created_at', Carbon::now()->year)
             ->where('type', 'debit')
             ->sum('amount');
+        $data['activity'] = Activity::where('user_id', Auth::user()->id)->orderBy('created_at', 'desc')->skip(1)->take(1)->first();
+        $data['clientIpAddress'] = $request->getClientIp();
+        $data['userIp'] = $request->ip();
+        $data['location'] = Location::get($data['userIp']);
+
+        // Use the Location facade to get the user's location
+        $location = Location::get($data['userIp']);
+
+        // Determine the flag URL
+        $data['flagUrl'] = '';
+        if ($location && $location->countryCode) {
+            $data['flagUrl'] = "https://flagcdn.com/24x18/" . strtolower($location->countryCode) . ".png";
+        }
 
 
 

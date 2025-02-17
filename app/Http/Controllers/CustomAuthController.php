@@ -96,7 +96,7 @@ class CustomAuthController extends Controller
 
 
 
-                //Mail::to($email)->send(new WelcomeEmail($wMessage));
+                Mail::to($email)->send(new WelcomeEmail($wMessage));
 
                 return redirect()->route('home')->with('success', 'Your email has been verified successfully!');
             } else {

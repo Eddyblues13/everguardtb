@@ -25,10 +25,11 @@
                                     <div class="bottom">
                                         <div class="card-expiry">
                                             <span class="label">Last Login <br></span>
-                                            {{ $activity->last_login_at ?
-                                            \Carbon\Carbon::parse($activity->last_login_at)->format('d M y, gA') : 'N/A'
-                                            }}
+                                            {{ $activity->last_login_at
+                                            ? \Carbon\Carbon::parse($activity->last_login_at)->format('d M y, gA')
+                                            : \Carbon\Carbon::now()->format('d M y, gA') }}
                                         </div>
+
 
                                         <div class="card-ccv">
                                             <span class="label">Your IP address<br> </span>

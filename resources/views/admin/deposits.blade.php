@@ -43,7 +43,7 @@
 										<th scope="row">{{$dep->id}}</th>
 										<td>{{$dep->name}}</td>
 										<td>{{$dep->email}}</td>
-										<td>{{ Auth::user()->currency }} {{number_format($dep->amount, 2, '.', ',')}}
+										<td>{{number_format($dep->amount, 2, '.', ',')}}
 										</td>
 										<td>{{$dep->asset}}</td>
 

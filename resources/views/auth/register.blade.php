@@ -35,13 +35,13 @@
     <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600" rel="stylesheet">
     <!-- End GOOGLE FONT -->
     <!-- BEGIN PLUGINS STYLES -->
-    <link rel="stylesheet" href="https://fccub.com/assets/vendor/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fccub.com/assets/vendor/summernote/summernote-bs4.css">
-    <link rel="stylesheet" href="https://fccub.com/assets/vendor/open-iconic/font/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="{{asset('reg/vendor/bootstrap/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('reg/vendor/summernote/summernote-bs4.css')}}">
+    <link rel="stylesheet" href="{{asset('reg/vendor/open-iconic/font/css/open-iconic-bootstrap.min.css')}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://fccub.com/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css">
-    <link rel="stylesheet" href="https://fccub.com/assets/vendor/flatpickr/flatpickr.min.css">
-    <link rel="stylesheet" href="https://fccub.com/assets/vendor/datatable/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="{{asset('reg/vendor/@fortawesome/fontawesome-free/css/all.min.css')}}">
+    <link rel="stylesheet" href="{{asset('reg/vendor/flatpickr/flatpickr.min.css')}}">
+    <link rel="stylesheet" href="{{asset('reg/vendor/datatable/css/responsive.bootstrap4.min.css')}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
@@ -62,9 +62,9 @@
         }
     </style>
     <!---**************COLORS*****************-->
-    <link rel="stylesheet" href="https://fccub.com/assets/stylesheets/theme.min.css" data-skin="default">
-    <link rel="stylesheet" href="https://fccub.com/assets/stylesheets/theme-dark.min.css" data-skin="dark">
-    <link rel="stylesheet" href="https://fccub.com/assets/stylesheets/others.css">
+    <link rel="stylesheet" href="{{asset('reg/stylesheets/theme.min.css')}}" data-skin="default">
+    <link rel="stylesheet" href="{{asset('reg/stylesheets/theme-dark.min.css')}}" data-skin="dark">
+    <link rel="stylesheet" href="{{asset('reg/stylesheets/others.css')}}">
     <!-- END THEME STYLES -->
 
     <script>
@@ -76,10 +76,10 @@
       // add loading class to html immediately
       document.querySelector('html').classList.add('loading');
     </script>
-    <script src="https://fccub.com/assets/javascript/countries.js"></script>
-    <script src="https://fccub.com/assets/javascript/pdf.js"></script>
-    <script src="https://fccub.com/assets/vendor/jquery/jquery-3.2.1.slim.min.js"></script>
-    <script src="https://fccub.com/assets/vendor/jquery/jquery.min.js"></script>
+    <script src="{{asset('reg/javascript/countries.js')}}"></script>
+    <script src="{{asset('reg/javascript/pdf.js')}}"></script>
+    <script src="{{asset('reg/vendor/jquery/jquery-3.2.1.slim.min.js')}}"></script>
+    <script src="{{asset('reg/vendor/jquery/jquery.min.js')}}"></script>
     <style>
         .navi-text {
             font-size: 17px;
@@ -552,21 +552,21 @@
         populateCountries("country2");
         populateCountries("country2");
     </script>
-    <script src="https://fccub.com/assets/vendor/popper.js/umd/popper.min.js"></script>
-    <script src="https://fccub.com/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
-    <script src="https://fccub.com/assets/vendor/summernote/summernote-bs4.js"></script>
-    <script src="https://fccub.com/assets/vendor/summernote/summernote-tools.js"></script>
-    <script src="https://fccub.com/assets/vendor/pace-progress/pace.min.js"></script>
-    <script src="https://fccub.com/assets/vendor/stacked-menu/js/stacked-menu.min.js"></script>
-    <script src="https://fccub.com/assets/vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-    <script src="https://fccub.com/assets/javascript/theme.min.js"></script> <!-- END THEME JS -->
-    <script src="https://fccub.com/assets/javascript/pages/dashboard-demo.js"></script> <!-- END PAGE LEVEL JS -->
+    <script src="{{asset('reg/vendor/popper.js/umd/popper.min.js')}}"></script>
+    <script src="{{asset('reg/vendor/bootstrap/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('reg/vendor/summernote/summernote-bs4.js')}}"></script>
+    <script src="{{asset('reg/vendor/summernote/summernote-tools.js')}}"></script>
+    <script src="{{asset('reg/vendor/pace-progress/pace.min.js')}}"></script>
+    <script src="{{asset('reg/vendor/stacked-menu/js/stacked-menu.min.js')}}"></script>
+    <script src="{{asset('reg/vendor/perfect-scrollbar/perfect-scrollbar.min.js')}}"></script>
+    <script src="{{asset('reg/javascript/theme.min.js')}}"></script> <!-- END THEME JS -->
+    <script src="{{asset('reg/javascript/pages/dashboard-demo.js')}}"></script> <!-- END PAGE LEVEL JS -->
 
-    <script src="https://fccub.com/assets/vendor/datatable/js/jquery.dataTables.min.js"></script>
-    <script src="https://fccub.com/assets/vendor/datatable/js/dataTables.bootstrap4.min.js"></script>
-    <script src="https://fccub.com/assets/vendor/datatable/js/dataTables.responsive.min.js"></script>
-    <script src="https://fccub.com/assets/vendor/datatable/js/responsive.bootstrap4.min.js"></script>
-    <script src="https://fccub.com/assets/vendor/flatpickr/flatpickr.min.js"></script>
+    <script src="{{asset('reg/vendor/datatable/js/jquery.dataTables.min.js')}}"></script>
+    <script src="{{asset('reg/vendor/datatable/js/dataTables.bootstrap4.min.js')}}"></script>
+    <script src="{{asset('reg/vendor/datatable/js/dataTables.responsive.min.js')}}"></script>
+    <script src="{{asset('reg/vendor/datatable/js/responsive.bootstrap4.min.js')}}"></script>
+    <script src="{{asset('reg/vendor/flatpickr/flatpickr.min.js')}}"></script>
 
 </body>
 

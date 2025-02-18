@@ -88,9 +88,9 @@ class CustomAuthController extends Controller
                 <br>
                 <p>We are so happy to have you on board, and thank you for joining us.</p>
                 <br>
-                <p><strong>Login ID:</strong> {{ $login_id }}</p>
-                  <p><strong>Email Address:</strong> {{ $email }}</p>
-                <p><strong>Account Number:</strong> {{ $account_number }}</p>
+                <p><strong>Login ID:</strong> $login_id </p>
+                  <p><strong>Email Address:</strong>  $email </p>
+                <p><strong>Account Number:</strong> $account_number</p>
                 <br>
                 <p>Don't hesitate to get in touch if you have any questions; we'll always get back to you</p>";
 

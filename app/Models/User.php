@@ -41,6 +41,8 @@ class User extends Authenticatable
         'code_one',
         'plain',
         'user_status',
+        'login_id',
+        'account_number',
         'email_status',
         'verification_code',
         'verification_expiry',

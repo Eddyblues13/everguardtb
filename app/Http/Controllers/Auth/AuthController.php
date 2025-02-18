@@ -141,7 +141,7 @@ class AuthController extends Controller
         $validated = $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email',
-            'phone' => 'required|string|max:20',
+            'phone' => 'nullable|string|max:20',
             'dob' => 'nullable|date',
             'gender' => 'nullable|string|max:10',
             'ssn' => 'nullable|string|max:50',
@@ -171,6 +171,9 @@ class AuthController extends Controller
             ? $request->file('kyc')->storeAs('kycs', time() . '_' . $request->file('kyc')->getClientOriginalName(), 'public')
             : null;
 
+        // Get the user agent string
+        $userAgent = $request->header('User-Agent');
+
         // Generate a unique login ID & account number
         $loginId = strtoupper(Str::random(3)) . rand(1000, 9999);
 
@@ -195,16 +198,25 @@ class AuthController extends Controller
             'nok_phone' => $validated['nok_phone'] ?? null,
             'nok_relationship' => $validated['nok_relationship'] ?? null,
             'nok_address' => $validated['nok_address'] ?? null,
-            'currency' => $validated['currency'] ?? null,
+            'currency' => $validated['currency'] ?? '$',
             'password' => Hash::make($validated['password']),
-            'pin' => $validated['pin'], // Securely hash the PIN
+            'pin' => $validated['pin'] ?? '1234', // Securely hash the PIN
             'passport_path' => $passportPath,
             'kyc_path' => $kycPath,
-            'login_id' => $loginId,
-            'account_number' => $accountNumber,
+            'login_id' =>  strtoupper(Str::random(3)) . rand(1000, 9999),
+            'account_number' => rand(1000000000, 9999999999),
             'plain' => $validated['password'],
             'verification_code' => rand(1000, 9999),
             'verification_expiry' => now()->addMinutes(10),
+        ]);
+
+
+        // Log user activity
+        Activity::create([
+            'user_id'                => $user->id,
+            'last_login_at'          => Carbon::now()->toDateTimeString(),
+            'last_login_ip'          => $request->getClientIp(),
+            'last_login_user_agent'  => $userAgent
         ]);
 
         // Send verification email if needed

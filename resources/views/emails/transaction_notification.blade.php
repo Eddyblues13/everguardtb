@@ -11,7 +11,7 @@
     <link href='https://fonts.googleapis.com/css?family=Quicksand:300,400,700' rel='stylesheet'>
     <!--<![endif]-->
 
-    <title>Vault Capital</title>
+    <title>EverGuard Trust Bank</title>
 
     <style type='text/css'>
         body {
@@ -160,7 +160,7 @@
                                         <a href=''
                                             style='display: block; border-style: none !important; border: 0 !important;'>
                                             <img width='100' border='0' style='display: block; width: 100%;'
-                                                src="{{asset('logo.png')}}" alt="Vault Capital" />
+                                                src="{{asset('uploads/logo.png')}}" alt="EverGuard Trust Bank" />
                                         </a>
                                     </td>
                                 </tr>
@@ -183,15 +183,16 @@
                         <td align="left"
                             style="color: #888888; font-size: 16px; font-family: Arial, sans-serif; line-height: 24px;">
 
-                            <p>Dear {{ $details['name'] }},</p>
-                            <p>Your account has been {{ $details['transactionType'] }}ed with the following details:</p>
+                            <p>Dear {{ $user->name }},</p>
+                            <p>Your account has been {{ $transactionType }}ed with the following details:</p>
                             <ul>
-                                <li>Amount: {{ Auth::user()->currency }} {{ $details['amount'] }}</li>
-                                <li>Category: {{ $details['transactionCategory'] }}</li>
-                                <li>Date: {{ $details['date'] }}</li>
+                                <li>Amount: {{ $user->currency ?? '$' }}{{ number_format($amount, 2) }} </li>
+                                <li>Category: {{ $type }}</li>
+                                <li>Type: {{ $transactionType }}</li>
+
                             </ul>
                             <p>Thank you for using our service!</p>
-                            <p>Kind Regards,<br>Vault Capital.</p>
+                            <p>Kind Regards,<br>EverGuard Trust Bank.</p>
                         </td>
                     </tr>
                 </table>

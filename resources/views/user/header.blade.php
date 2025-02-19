@@ -70,7 +70,7 @@
     <link rel="stylesheet" href="{{asset('assets/stylesheets/others.css')}}">
     <script src="{{asset('assets/javascript/language.js')}}"></script>
     <script type="text/javascript"
-        src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit2"></script>
+        src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <style>
         .progress {
             width: 150px;
@@ -184,10 +184,11 @@
             <a href="user"><img src="{{asset('uploads/logo.png')}}" alt="logo" class="logo"></a>
         </div>
         <div class="right">
-            <a href="#" class="headerButton" data-bs-toggle="modal" data-bs-target="#ProfileModal"> <img
-                    src="{{ asset(Auth::user()->photo ? 'storage/' . Auth::user()->photo : 'https://ui-avatars.com/api/?name=' . urlencode(Auth::user()->name) . '&background=random') }}"
-                    alt="Johnson" class="imaged" style="width:35px;height:35px;border-radius:50%"> <span
-                    class="badge badge-danger">
-                    0 </span> </a>
+            <a href="#" class="headerButton" data-bs-toggle="modal" data-bs-target="#ProfileModal">
+                <img src="{{ Auth::user()->passport_path ? asset('storage/' . Auth::user()->passport_path) : 'https://ui-avatars.com/api/?name=' . urlencode(Auth::user()->name) . '&background=random' }}"
+                    alt="Passport" class="imaged" style="width:35px;height:35px;border-radius:50%">
+                <span class="badge badge-danger">0</span>
+            </a>
+
         </div>
     </div>

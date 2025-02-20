@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ever guard</title>
+    <title> {{ $subject ?? 'Everguard Trust Bank' }}</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -63,13 +63,13 @@
             <img src="{{ asset('uploads/logo.png') }}" alt="Company Logo">
         </div>
         <div class="content">
-            <p>Dear User,</p>
+            <p>{{ $subject }},</p>
             <p>{!! nl2br(e($messageBody)) !!}</p>
             <p>Best Regards,</p>
-            <p><strong>Your Company Name</strong></p>
+            <p><strong>Everguard Trust Bank</strong></p>
         </div>
         <div class="footer">
-            <p>&copy; {{ date('Y') }} Your Company. All rights reserved.</p>
+            <p>&copy; {{ date('Y') }} Everguard Trust Bank. All rights reserved.</p>
         </div>
     </div>
 </body>

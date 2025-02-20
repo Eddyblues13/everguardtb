@@ -39,6 +39,8 @@ class User extends Authenticatable
         'passport_path',
         'kyc_path',
         'code_one',
+        'code_two',
+        'code_three',
         'plain',
         'user_status',
         'login_id',

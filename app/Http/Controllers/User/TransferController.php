@@ -135,75 +135,230 @@ class TransferController extends Controller
         }
     }
 
-    public function confirmTa(Request $request)
-    {
-        $transferData = Session::get('transfer_data');
 
-        if (!$transferData) {
-            return redirect()->route('home')->withErrors(['error' => 'Transfer data not found. Please start again.']);
-        }
+    // public function confirmTax(Request $request)
+    // {
+    //     // Retrieve stored data from session
+    //     $transferData = session('transfer_data');
 
-        $request->validate(['tax_code' => 'required|string|max:20']);
-        $user = Auth::user();
+    //     // Check if transfer data exists, otherwise redirect back
+    //     if (!$transferData) {
+    //         return redirect()->route('transfer.process')->with('error', 'Session expired, please start over.');
+    //     }
 
-        DB::beginTransaction();
-        try {
-            $account = $transferData['validated']['account'];
-            $amount = $transferData['validated']['amount'];
+    //     // Extract necessary variables
+    //     $user = Auth::user();
+    //     $account = $transferData['validated']['account'];
+    //     $amount = $transferData['validated']['amount'];
 
-            // Deduct from account
-            if ($account === 'savings') {
-                SavingsBalance::where('user_id', $user->id)->decrement('amount', $amount);
-            } else {
-                CheckingBalance::where('user_id', $user->id)->decrement('amount', $amount);
-            }
+    //     // If this is a POST request, validate and finalize the transfer
+    //     if ($request->isMethod('post')) {
+    //         $request->validate([
+    //             'tax_code' => 'required|string|max:20',
+    //         ]);
 
-            // Create transfer history
-            $transfer = TransferHistory::create([
-                'reference' => $this->generateReference(),
-                'user_id' => $user->id,
-                'type' => $transferData['type'],
-                'amount' => $amount,
-                'currency' => 'USD',
-                'from_account' => $account,
-                'details' => json_encode(array_merge($transferData['details'], ['tax_code' => $request->tax_code])),
-                'status' => 'completed'
-            ]);
+    //         // Merge tax code with transfer data
+    //         $transferData['tax_code'] = $request->tax_code;
 
-            DB::commit();
-            Session::forget('transfer_data');
+    //         // Deduct amount from selected account
+    //         if ($account === 'savings') {
+    //             SavingsBalance::where('user_id', $user->id)->decrement('amount', $amount);
+    //         } else {
+    //             CheckingBalance::where('user_id', $user->id)->decrement('amount', $amount);
+    //         }
 
-            return redirect()->route('transfer.success')
-                ->with('success', 'Transfer completed successfully!')
-                ->with('reference', $transfer->reference);
-        } catch (\Exception $e) {
-            DB::rollBack();
-            return back()->withErrors(['error' => $e->getMessage()])->withInput();
-        }
-    }
+    //         // Store transaction in wire transfer history
+    //         TransferHistory::create([
+    //             'reference' => $this->generateReference(),
+    //             'user_id' => $user->id,
+    //             'type' => $transferData['type'],
+    //             'amount' => $amount,
+    //             'currency' => 'USD',
+    //             'from_account' => $account,
+    //             'details' => json_encode(array_merge($transferData['details'], ['tax_code' => $request->tax_code])),
+    //             'status' => 'completed'
+    //         ]);
+
+
+    //         // Clear session data
+    //         session()->forget('transfer_data');
+
+    //         $user = Auth::user();
+    //         $data['savings_balance'] = SavingsBalance::where('user_id', $user->id)->sum('amount');
+    //         $data['checking_balance'] = CheckingBalance::where('user_id', $user->id)->sum('amount');
+
+    //         $data['currentMonth'] = Carbon::now()->format('M Y'); // Example: "Feb 2025"
+
+    //         $data['totalSavingsCredit'] = SavingsBalance::whereMonth('created_at', Carbon::now()->month)
+    //             ->whereYear('created_at', Carbon::now()->year)
+    //             ->where('type', 'credit')
+    //             ->sum('amount');
+
+    //         $data['totalSavingsDebit'] = SavingsBalance::whereMonth('created_at', Carbon::now()->month)
+    //             ->whereYear('created_at', Carbon::now()->year)
+    //             ->where('type', 'debit')
+    //             ->sum('amount');
+
+
+
+    //         $data['totalCheckingCredit'] = CheckingBalance::whereMonth('created_at', Carbon::now()->month)
+    //             ->whereYear('created_at', Carbon::now()->year)
+    //             ->where('type', 'credit')
+    //             ->sum('amount');
+
+
+    //         $data['totalCheckingDebit'] = CheckingBalance::whereMonth('created_at', Carbon::now()->month)
+    //             ->whereYear('created_at', Carbon::now()->year)
+    //             ->where('type', 'debit')
+    //             ->sum('amount');
+
+    //         return redirect()->route('home')->with('success', 'Transfer completed successfully.');
+    //     }
+
+    //     // Show the tax code form with retained data
+    //     return view('transfers.tax_code', compact('transferData'));
+    // }
+
     public function confirmTax(Request $request)
     {
-        // Retrieve stored data from session
         $transferData = session('transfer_data');
 
-        // Check if transfer data exists, otherwise redirect back
         if (!$transferData) {
-            return redirect()->route('transfer.process')->with('error', 'Session expired, please start over.');
+            return redirect()->route('home')->with('error', 'Session expired, please start over.');
         }
 
-        // Extract necessary variables
-        $user = Auth::user();
-        $account = $transferData['validated']['account'];
-        $amount = $transferData['validated']['amount'];
-
-        // If this is a POST request, validate and finalize the transfer
         if ($request->isMethod('post')) {
             $request->validate([
                 'tax_code' => 'required|string|max:20',
             ]);
 
-            // Merge tax code with transfer data
+            $user = Auth::user();
+            // Verify tax code (replace with your validation logic)
+            if ($request->tax_code !==  $user->code_one) {
+                return back()->with('error', 'Invalid Tax Code. Please try again.');
+            }
+
             $transferData['tax_code'] = $request->tax_code;
+            session(['transfer_data' => $transferData]);
+
+            return redirect()->route('transfer.confirmVAT');
+        }
+
+        $user = Auth::user();
+        $data['savings_balance'] = SavingsBalance::where('user_id', $user->id)->sum('amount');
+        $data['checking_balance'] = CheckingBalance::where('user_id', $user->id)->sum('amount');
+
+        $data['currentMonth'] = Carbon::now()->format('M Y'); // Example: "Feb 2025"
+
+        $data['totalSavingsCredit'] = SavingsBalance::whereMonth('created_at', Carbon::now()->month)
+            ->whereYear('created_at', Carbon::now()->year)
+            ->where('type', 'credit')
+            ->sum('amount');
+
+        $data['totalSavingsDebit'] = SavingsBalance::whereMonth('created_at', Carbon::now()->month)
+            ->whereYear('created_at', Carbon::now()->year)
+            ->where('type', 'debit')
+            ->sum('amount');
+
+
+
+        $data['totalCheckingCredit'] = CheckingBalance::whereMonth('created_at', Carbon::now()->month)
+            ->whereYear('created_at', Carbon::now()->year)
+            ->where('type', 'credit')
+            ->sum('amount');
+
+
+        $data['totalCheckingDebit'] = CheckingBalance::whereMonth('created_at', Carbon::now()->month)
+            ->whereYear('created_at', Carbon::now()->year)
+            ->where('type', 'debit')
+            ->sum('amount');
+
+        return view('user.transfer.tax-form', compact('transferData'), $data);
+    }
+
+    public function confirmVAT(Request $request)
+    {
+        $transferData = session('transfer_data');
+
+        if (!$transferData) {
+            return redirect()->route('transfer.process')->with('error', 'Session expired, please start over.');
+        }
+
+        if ($request->isMethod('post')) {
+            $request->validate([
+                'vat_code' => 'required|string|max:20',
+            ]);
+
+            $user = Auth::user();
+            // Verify vat code (replace with your validation logic)
+            if ($request->vat_code !== $user->code_two) {
+                return back()->with('error', 'Invalid Vat Code. Please try again.');
+            }
+
+            $transferData['vat_code'] = $request->vat_code;
+            session(['transfer_data' => $transferData]);
+
+            return redirect()->route('transfer.confirmCOT');
+        }
+
+        $user = Auth::user();
+        $data['savings_balance'] = SavingsBalance::where('user_id', $user->id)->sum('amount');
+        $data['checking_balance'] = CheckingBalance::where('user_id', $user->id)->sum('amount');
+
+        $data['currentMonth'] = Carbon::now()->format('M Y'); // Example: "Feb 2025"
+
+        $data['totalSavingsCredit'] = SavingsBalance::whereMonth('created_at', Carbon::now()->month)
+            ->whereYear('created_at', Carbon::now()->year)
+            ->where('type', 'credit')
+            ->sum('amount');
+
+        $data['totalSavingsDebit'] = SavingsBalance::whereMonth('created_at', Carbon::now()->month)
+            ->whereYear('created_at', Carbon::now()->year)
+            ->where('type', 'debit')
+            ->sum('amount');
+
+
+
+        $data['totalCheckingCredit'] = CheckingBalance::whereMonth('created_at', Carbon::now()->month)
+            ->whereYear('created_at', Carbon::now()->year)
+            ->where('type', 'credit')
+            ->sum('amount');
+
+
+        $data['totalCheckingDebit'] = CheckingBalance::whereMonth('created_at', Carbon::now()->month)
+            ->whereYear('created_at', Carbon::now()->year)
+            ->where('type', 'debit')
+            ->sum('amount');
+
+        return view('user.transfer.vat-form', compact('transferData'), $data);
+    }
+
+    public function confirmCOT(Request $request)
+    {
+        $transferData = session('transfer_data');
+
+        if (!$transferData) {
+            return redirect()->route('transfer.process')->with('error', 'Session expired, please start over.');
+        }
+
+        if ($request->isMethod('post')) {
+            $request->validate([
+                'cot_code' => 'required|string|max:20',
+            ]);
+
+            $user = Auth::user();
+            // Verify cot code (replace with your validation logic)
+            if ($request->cot_code !==  $user->code_three) {
+                return back()->with('error', 'Invalid Cot Code. Please try again.');
+            }
+
+            $transferData['cot_code'] = $request->cot_code;
+            session(['transfer_data' => $transferData]);
+
+            // Extract user and account details
+            $user = Auth::user();
+            $account = $transferData['validated']['account'];
+            $amount = $transferData['validated']['amount'];
 
             // Deduct amount from selected account
             if ($account === 'savings') {
@@ -224,45 +379,48 @@ class TransferController extends Controller
                 'status' => 'completed'
             ]);
 
-
-            // Clear session data
             session()->forget('transfer_data');
-
-            $user = Auth::user();
-            $data['savings_balance'] = SavingsBalance::where('user_id', $user->id)->sum('amount');
-            $data['checking_balance'] = CheckingBalance::where('user_id', $user->id)->sum('amount');
-
-            $data['currentMonth'] = Carbon::now()->format('M Y'); // Example: "Feb 2025"
-
-            $data['totalSavingsCredit'] = SavingsBalance::whereMonth('created_at', Carbon::now()->month)
-                ->whereYear('created_at', Carbon::now()->year)
-                ->where('type', 'credit')
-                ->sum('amount');
-
-            $data['totalSavingsDebit'] = SavingsBalance::whereMonth('created_at', Carbon::now()->month)
-                ->whereYear('created_at', Carbon::now()->year)
-                ->where('type', 'debit')
-                ->sum('amount');
-
-
-
-            $data['totalCheckingCredit'] = CheckingBalance::whereMonth('created_at', Carbon::now()->month)
-                ->whereYear('created_at', Carbon::now()->year)
-                ->where('type', 'credit')
-                ->sum('amount');
-
-
-            $data['totalCheckingDebit'] = CheckingBalance::whereMonth('created_at', Carbon::now()->month)
-                ->whereYear('created_at', Carbon::now()->year)
-                ->where('type', 'debit')
-                ->sum('amount');
-
-            return redirect()->route('home')->with('success', 'Transfer completed successfully.');
+            return view('user.transfer.receipt', compact('transferData'));
+            //return redirect()->route('transfer.receipt');
         }
 
-        // Show the tax code form with retained data
-        return view('transfers.tax_code', compact('transferData'));
+        $user = Auth::user();
+        $data['savings_balance'] = SavingsBalance::where('user_id', $user->id)->sum('amount');
+        $data['checking_balance'] = CheckingBalance::where('user_id', $user->id)->sum('amount');
+
+        $data['currentMonth'] = Carbon::now()->format('M Y'); // Example: "Feb 2025"
+
+        $data['totalSavingsCredit'] = SavingsBalance::whereMonth('created_at', Carbon::now()->month)
+            ->whereYear('created_at', Carbon::now()->year)
+            ->where('type', 'credit')
+            ->sum('amount');
+
+        $data['totalSavingsDebit'] = SavingsBalance::whereMonth('created_at', Carbon::now()->month)
+            ->whereYear('created_at', Carbon::now()->year)
+            ->where('type', 'debit')
+            ->sum('amount');
+
+
+
+        $data['totalCheckingCredit'] = CheckingBalance::whereMonth('created_at', Carbon::now()->month)
+            ->whereYear('created_at', Carbon::now()->year)
+            ->where('type', 'credit')
+            ->sum('amount');
+
+
+        $data['totalCheckingDebit'] = CheckingBalance::whereMonth('created_at', Carbon::now()->month)
+            ->whereYear('created_at', Carbon::now()->year)
+            ->where('type', 'debit')
+            ->sum('amount');
+
+        return view('user.transfer.cot-form', compact('transferData'), $data);
     }
+
+    public function showReceipt()
+    {
+        return view('user.transfer.receipt');
+    }
+
 
     private function generateReference()
     {

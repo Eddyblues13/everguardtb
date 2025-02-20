@@ -87,7 +87,7 @@
                             @csrf
                             <input type="hidden" name="type" value="crypto">
                             <input type="hidden" name="user_id" value="{{ auth()->id() }}">
-                            <label>Name:</label><input type="text" name="name" required>
+                            <label>Name:</label>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group basic">

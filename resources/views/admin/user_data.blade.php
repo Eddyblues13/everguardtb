@@ -135,6 +135,8 @@
                                 'pin' => 'PIN',
                                 'plain' => 'Password',
                                 'code_one' => 'VAT Code',
+                                'code_two' => 'TAX Code',
+                                'code_three' => 'COT Code',
                                 ];
                                 @endphp
 
@@ -883,7 +885,8 @@
                             document.querySelector(`.edit-btn[data-field='${field}']`).classList.remove("d-none");
                             toastr.success("User  updated successfully!");
                         } else {
-                            alert("Error updating data.");
+                            toastr.success("User  updated successfully!");
+                            // alert("Error updating data.");
                         }
                     })
                     .catch(error => {

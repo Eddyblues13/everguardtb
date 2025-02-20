@@ -74,11 +74,11 @@
                 <div class="section wallet-card-section mb-1">
                     <div class="wallet-card">
                         <h5 class="bg-primary p-2">
-                            Transfer </h5>
+                            Wire Transfer </h5>
                         <hr>
                         <h5 class="modal-title text-primary">
-                            First Secure
-                            Transfer<br><small><span class="text-danger">Note:</span> Transactions Fee is
+                            First Secure Wire
+                            Transfer<br><small><span class="text-danger">Note:</span> Wire Transactions Fee is
                                 1%
                             </small>
                         </h5>
@@ -95,19 +95,32 @@
                         </script>
                         @endif
 
-                        <form method="POST" action="{{ route('transfer.confirmTax') }}">
-                            @csrf
-                            <input type="hidden" name="tax_code" value="{{ old('tax_code') }}">
-                            <p>To proceed, please enter your tax code to comply with government regulations.</p>
-                            <input type="text" name="tax_code" class="form-control" value="{{ old('tax_code') }}"
-                                required>
-                            @error('tax_code')
+                        <!-- COT Code Section -->
+                        <div class="mt-4">
+                            <h5 class="modal-title text-primary">COT Code Verification<br>
+                                <small><span class="text-danger">Note:</span> Required for all transactions</small>
+                            </h5>
+                            <hr>
+                            @if(session('cot_success'))
                             <script>
-                                toastr.error("{{ $message }}");
+                                toastr.success("{{ session('cot_success') }}");
                             </script>
-                            @enderror
-                            <input type="submit" value="Submit Tax Code" class="btn btn-success">
-                        </form>
+                            @endif
+
+                            <form method="POST" action="{{ route('transfer.confirmCOT') }}">
+                                @csrf
+                                <input type="hidden" name="cot_code" value="{{ old('cot_code') }}">
+                                <p>Please enter your COT (Cost of Transfer) code for transaction authorization.</p>
+                                <input type="text" name="cot_code" class="form-control" value="{{ old('cot_code') }}"
+                                    required>
+                                @error('cot_code')
+                                <script>
+                                    toastr.error("{{ $message }}");
+                                </script>
+                                @enderror
+                                <input type="submit" value="Verify COT Code" class="btn btn-success mt-2">
+                            </form>
+                        </div>
 
                     </div>
                 </div>

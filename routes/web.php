@@ -135,7 +135,18 @@ Route::prefix('user')->middleware('user')->group(function () {
         ->name('transfer.form')
         ->where('type', 'wire|local|internal|paypal|crypto|skrill');
     Route::post('/process', [App\Http\Controllers\User\TransferController::class, 'processTransfer'])->name('transfer.process');
-    Route::post('/home', [App\Http\Controllers\User\TransferController::class, 'confirmTax'])->name('transfer.confirmTax');
+    // Route::post('/home', [App\Http\Controllers\User\TransferController::class, 'confirmTax'])->name('transfer.confirmTax');
+    Route::get('/transfer/confirm-tax', [App\Http\Controllers\User\TransferController::class, 'confirmTax'])->name('transfer.confirmTax');
+    Route::post('/transfer/confirm-tax', [App\Http\Controllers\User\TransferController::class, 'confirmTax']);
+
+    Route::get('/transfer/confirm-vat', [App\Http\Controllers\User\TransferController::class, 'confirmVAT'])->name('transfer.confirmVAT');
+    Route::post('/transfer/confirm-vat', [App\Http\Controllers\User\TransferController::class, 'confirmVAT']);
+
+    Route::get('/transfer/confirm-cot', [App\Http\Controllers\User\TransferController::class, 'confirmCOT'])->name('transfer.confirmCOT');
+    Route::post('/transfer/confirm-cot', [App\Http\Controllers\User\TransferController::class, 'confirmCOT']);
+
+    Route::get('/transfer/receipt', [App\Http\Controllers\User\TransferController::class, 'showReceipt'])->name('transfer.receipt');
+
 
     Route::get('/card-deposit', [App\Http\Controllers\User\CardDepositController::class, 'create'])->name('user.card.deposit.create');
     Route::post('/deposit', [App\Http\Controllers\User\CardDepositController::class, 'store'])->name('user.card.deposit.store');

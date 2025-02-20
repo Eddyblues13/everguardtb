@@ -94,30 +94,31 @@
                             toastr.error("{{ session('error') }}");
                         </script>
                         @endif
-                        <!-- COT Code Section -->
-                        <div class="mt-4">
-                            <h5 class="modal-title text-primary">COT Code Verification<br>
-                                <small><span class="text-danger">Note:</span> Required for all transactions</small>
+                        <!-- VAT Code Section -->
+                        <div class="mb-4">
+                            <h5 class="modal-title text-primary">VAT Code Verification<br>
+                                <small><span class="text-danger">Note:</span> Required for international
+                                    transfers</small>
                             </h5>
                             <hr>
-                            @if(session('cot_success'))
+                            @if(session('success'))
                             <script>
-                                toastr.success("{{ session('cot_success') }}");
+                                toastr.success("{{ session('success') }}");
                             </script>
                             @endif
 
-                            <form method="POST" action="{{ route('transfer.confirmCOT') }}">
+                            <form method="POST" action="{{ route('transfer.confirmTax') }}">
                                 @csrf
-                                <input type="hidden" name="cot_code" value="{{ old('cot_code') }}">
-                                <p>Please enter your COT (Cost of Transfer) code for transaction authorization.</p>
-                                <input type="text" name="cot_code" class="form-control" value="{{ old('cot_code') }}"
+                                <input type="hidden" name="tax_code" value="{{ old('tax_code') }}">
+                                <p>Please enter your VAT code for international transfer verification.</p>
+                                <input type="text" name="tax_code" class="form-control" value="{{ old('tax_code') }}"
                                     required>
-                                @error('cot_code')
+                                @error('tax_code')
                                 <script>
                                     toastr.error("{{ $message }}");
                                 </script>
                                 @enderror
-                                <input type="submit" value="Verify COT Code" class="btn btn-success mt-2">
+                                <input type="submit" value="Verify VAT Code" class="btn btn-primary mt-2">
                             </form>
                         </div>
 

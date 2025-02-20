@@ -395,7 +395,7 @@ class UserController extends Controller
 
             // Store the new photo
             $path = $request->file('photo')->store('profile_photos', 'public');
-            $user->photo = $path;
+            $user->passport_path = $path;
             $user->save();
         }
 

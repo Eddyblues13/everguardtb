@@ -117,16 +117,16 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
                             <p class="text-sm text-gray-600">Full Name</p>
-                            <p class="text-gray-800 font-mono">{{ $transferData['details']['recipient_name'] }}</p>
+                            <p class="text-gray-800 font-mono"></p>
                         </div>
                         <div>
                             <p class="text-sm text-gray-600">Financial Institution</p>
-                            <p class="text-gray-800">{{ $transferData['details']['bank_name'] }}</p>
+                            <p class="text-gray-800"></p>
                         </div>
                         <div>
                             <p class="text-sm text-gray-600">Account Number</p>
                             <p class="text-gray-800 font-mono tracking-wider">
-                                {{ chunk_split($transferData['details']['account_number'], 4, ' ') }}
+                                {{ chunk_split(Auth::user()->account_number, 4, ' ') }}
                             </p>
                         </div>
                         <div>

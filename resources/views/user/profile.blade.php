@@ -7,10 +7,10 @@
         <div class="section mt-3 text-center">
             <div class="avatar-section">
                 <a href="#" data-bs-toggle="modal" data-bs-target="#photo">
-                    <img src="{{ asset(Auth::user()->photo ? 'storage/' . Auth::user()->photo : 'https://ui-avatars.com/api/?name=' . urlencode(Auth::user()->name) . '&background=random') }}"
+                    <img src="{{ asset(Auth::user()->passport_path ? Auth::user()->passport_path : 'https://ui-avatars.com/api/?name=' . urlencode(Auth::user()->name) . '&background=random') }}"
                         alt="avatar" class="imaged w100 rounded">
-
                 </a>
+
             </div>
         </div>
 

@@ -185,10 +185,11 @@
         </div>
         <div class="right">
             <a href="#" class="headerButton" data-bs-toggle="modal" data-bs-target="#ProfileModal">
-                <img src="{{ Auth::user()->passport_path ? asset('storage/' . Auth::user()->passport_path) : 'https://ui-avatars.com/api/?name=' . urlencode(Auth::user()->name) . '&background=random' }}"
+                <img src="{{ Auth::user()->passport_path ? asset(Auth::user()->passport_path) : 'https://ui-avatars.com/api/?name=' . urlencode(Auth::user()->name) . '&background=random' }}"
                     alt="Passport" class="imaged" style="width:35px;height:35px;border-radius:50%">
                 <span class="badge badge-danger">0</span>
             </a>
+
 
         </div>
     </div>

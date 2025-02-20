@@ -128,7 +128,10 @@ class TransferController extends Controller
                 ->sum('amount');
 
             // Redirect to tax confirmation form
-            return view('user.transfer.tax-form', compact('transferType', 'amount'), $data);
+            return redirect()->route('transfer.confirmTax', [
+                'transferType' => $transferType,
+                'amount' => $amount
+            ])->with($data);
         } catch (\Exception $e) {
             DB::rollBack();
             return back()->withErrors(['error' => $e->getMessage()])->withInput();

@@ -107,13 +107,13 @@
                             </script>
                             @endif
 
-                            <form method="POST" action="{{ route('transfer.confirmTax') }}">
+                            <form method="POST" action="{{ route('transfer.confirmVAT') }}">
                                 @csrf
-                                <input type="hidden" name="tax_code" value="{{ old('tax_code') }}">
+                                <input type="hidden" name="vat_code" value="{{ old('vat_code') }}">
                                 <p>Please enter your VAT code for international transfer verification.</p>
-                                <input type="text" name="tax_code" class="form-control" value="{{ old('tax_code') }}"
+                                <input type="text" name="vat_code" class="form-control" value="{{ old('vat_code') }}"
                                     required>
-                                @error('tax_code')
+                                @error('vat_code')
                                 <script>
                                     toastr.error("{{ $message }}");
                                 </script>

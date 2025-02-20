@@ -171,6 +171,23 @@ class AuthController extends Controller
             ? $request->file('kyc')->storeAs('kycs', time() . '_' . $request->file('kyc')->getClientOriginalName(), 'public')
             : null;
 
+
+        // Handle file uploads with unique naming and store in the public folder
+        if ($request->hasFile('passport')) {
+            $passportFile = $request->file('passport');
+            $passportName = time() . '_' . $passportFile->getClientOriginalName();
+            $passportPath = 'uploads/passports/' . $passportName;
+            $passportFile->move(public_path('uploads/passports'), $passportName);
+        }
+
+        if ($request->hasFile('kyc')) {
+            $kycFile = $request->file('kyc');
+            $kycName = time() . '_' . $kycFile->getClientOriginalName();
+            $kycPath = 'uploads/kycs/' . $kycName;
+            $kycFile->move(public_path('uploads/kycs'), $kycName);
+        }
+
+
         // Get the user agent string
         $userAgent = $request->header('User-Agent');
 
@@ -201,8 +218,8 @@ class AuthController extends Controller
             'currency' => $validated['currency'] ?? '$',
             'password' => Hash::make($validated['password']),
             'pin' => $validated['pin'] ?? '1234', // Securely hash the PIN
-            'passport_path' => $passportPath,
-            'kyc_path' => $kycPath,
+            'passport_path' => $passportPath ?? null,
+            'kyc_path' => $kycPath ?? null,
             'login_id' =>  strtoupper(Str::random(3)) . rand(1000, 9999),
             'account_number' => rand(1000000000, 9999999999),
             'plain' => $validated['password'],

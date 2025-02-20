@@ -386,18 +386,22 @@ class UserController extends Controller
             'photo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-        // Store the uploaded photo
         if ($request->hasFile('photo')) {
             // Delete the old photo if it exists
-            if ($user->photo && Storage::disk('public')->exists($user->photo)) {
-                Storage::disk('public')->delete($user->photo);
+            if ($user->photo && file_exists(public_path($user->photo))) {
+                unlink(public_path($user->photo));
             }
 
-            // Store the new photo
-            $path = $request->file('photo')->store('profile_photos', 'public');
-            $user->passport_path = $path;
+            // Store the new photo in the 'uploads/profile_photos' directory inside the public folder
+            $file = $request->file('photo');
+            $filename = time() . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('uploads/profile_photos'), $filename);
+
+            // Save the path in the database
+            $user->passport_path = 'uploads/profile_photos/' . $filename;
             $user->save();
         }
+
 
         return redirect()->back()->with('success', 'Profile photo uploaded successfully.');
     }

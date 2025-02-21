@@ -417,7 +417,7 @@
                                                                 <label
                                                                     class="text-primary font-weight-bold">Address</label>
                                                                 <textarea name="nok_address" class="form-control"
-                                                                    rows="2">{{ old('nok_address') }}</textarea>
+                                                                    rows="2">{{ old('nok_address') }}</textarea required>
                                                                 @error('nok_address')
                                                                 <div class="alert alert-danger mt-2">{{ $message }}
                                                                 </div>
@@ -463,7 +463,7 @@
                                                                 <label
                                                                     class="text-primary font-weight-bold">Password</label>
                                                                 <input type="password" class="form-control"
-                                                                    name="password">
+                                                                    name="password" required>
                                                                 @error('password')
                                                                 <div class="alert alert-danger mt-2">{{ $message }}
                                                                 </div>
@@ -473,12 +473,12 @@
                                                                 <label class="text-primary font-weight-bold">Repeat
                                                                     Password</label>
                                                                 <input type="password" class="form-control"
-                                                                    name="password_confirmation">
+                                                                    name="password_confirmation" required>
                                                             </div>
                                                             <div class="col-md-3 mb-3">
                                                                 <label class="text-primary font-weight-bold">PIN</label>
                                                                 <input type="text" class="form-control" maxlength="4"
-                                                                    name="pin" value="{{ old('pin') }}">
+                                                                    name="pin" value="{{ old('pin') }}" required>
                                                                 @error('pin')
                                                                 <div class="alert alert-danger mt-2">{{ $message }}
                                                                 </div>
@@ -494,7 +494,8 @@
                                                             <div class="col-md-6 mb-3">
                                                                 <label class="text-primary font-weight-bold">Passport
                                                                     Photograph</label>
-                                                                <input type="file" class="form-control" name="passport">
+                                                                <input type="file" class="form-control" name="passport"
+                                                                    required>
                                                                 <small><strong>Accepted File Type:</strong> png, jpg,
                                                                     gif (max: 5mb)</small>
                                                                 @error('passport')
@@ -505,7 +506,8 @@
                                                             <div class="col-md-6 mb-3">
                                                                 <label class="text-primary font-weight-bold">Means of
                                                                     Identification</label>
-                                                                <input type="file" class="form-control" name="kyc">
+                                                                <input type="file" class="form-control" name="kyc"
+                                                                    required>
                                                                 <small><strong>Accepted Documents:</strong> Passport ID,
                                                                     National ID, Bank Statement, Utility
                                                                     Bill</small><br>
@@ -537,6 +539,59 @@
                         </div>
                     </div>
                     <!-- /.page -->
+                    <script>
+                        // Toastr configuration
+                        toastr.options = {
+                            "closeButton": true,
+                            "progressBar": true,
+                            "positionClass": "toast-top-right",
+                            "preventDuplicates": true,
+                            "showDuration": "300",
+                            "hideDuration": "1000",
+                            "timeOut": "5000",
+                            "extendedTimeOut": "1000"
+                        };
+                    
+                        // Display validation errors
+                        @if($errors->any())
+                            @foreach($errors->all() as $error)
+                                toastr.error("{{ $error }}");
+                            @endforeach
+                        @endif
+                    
+                        // Form submission handling
+                        document.getElementById('registrationForm').addEventListener('submit', function(e) {
+                            let valid = true;
+                            
+                            // Client-side validation
+                            this.querySelectorAll('[required]').forEach(input => {
+                                if (!input.value.trim()) {
+                                    toastr.error(`Please fill in the ${input.labels[0].innerText} field`);
+                                    valid = false;
+                                }
+                            });
+                    
+                            // Password confirmation check
+                            const password = document.querySelector('input[name="password"]');
+                            const confirmPassword = document.querySelector('input[name="password_confirmation"]');
+                            if (password.value !== confirmPassword.value) {
+                                toastr.error('Passwords do not match');
+                                valid = false;
+                            }
+                    
+                            if (!valid) e.preventDefault();
+                        });
+                    </script>
+
+                    <style>
+                        .form-control:invalid {
+                            border-color: #dc3545;
+                        }
+
+                        .form-control:valid {
+                            border-color: #28a745;
+                        }
+                    </style>
                 </div>
             </div>
         </main>

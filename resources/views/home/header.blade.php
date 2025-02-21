@@ -118,8 +118,8 @@
         <div class="l-header__bottom">
             <div id="header-inner" class="l-header__bottom-inner l-contain u-cf js-l-contain">
 
-                <a href="{{ url('/') }}" class="l-header__logo"><img src="uploads/logo.png" width="200px" /><span
-                        class="u-visuallyhidden">
+                <a href="{{ url('/') }}" class="l-header__logo"><img src="{{asset('uploads/logo.png')}}"
+                        width="200px" /><span class="u-visuallyhidden">
                         Everguard Trust Bank </span></a>
 
                 <div class="l-header__action js-header-action">

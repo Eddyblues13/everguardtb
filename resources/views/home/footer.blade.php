@@ -66,7 +66,7 @@
                             <li class='footer-services__nav-item'><a href='mailto:support@everguardtb.com'
                                     class='footer-services__nav-link'>Email Us</a></li>
                         </ul>
-                        <img src="uploads/logo.png" width="255" alt="First New Logo" />
+                        <img src="{{asset('uploads/logo.png')}}" width="255" alt="First New Logo" />
                         <hr>
                         <div class="footer-nav__col1">
                             <ul class='footer-nav__links'>

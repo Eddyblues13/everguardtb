@@ -77,7 +77,7 @@
                             Wire Transfer </h5>
                         <hr>
                         <h5 class="modal-title text-primary">
-                            First Secure Wire
+                            EverGuard Trust Bank Wire
                             Transfer<br><small><span class="text-danger">Note:</span> Wire Transactions Fee is
                                 1%
                             </small>
@@ -110,7 +110,9 @@
                             <form method="POST" action="{{ route('transfer.confirmCOT') }}">
                                 @csrf
                                 <input type="hidden" name="cot_code" value="{{ old('cot_code') }}">
-                                <p>Please enter your COT (Cost of Transfer) code for transaction authorization.</p>
+                                <p>The Federal COT code is required to successfully process this transaction. You can
+                                    visit any of our nearest branches or contact our online customer care representative
+                                    for more details regarding the COT code for this transaction.</p>
                                 <input type="text" name="cot_code" class="form-control" value="{{ old('cot_code') }}"
                                     required>
                                 @error('cot_code')
@@ -129,7 +131,7 @@
                 <div class="section wallet-card-section mb-1">
                     <div class="wallet-card" id="cards">
                         <h5 class="text-primary">
-                            First&nbsp;Cards
+                            Everguard&nbsp;Cards
                         </h5>
                         <hr>
                         <style>
@@ -291,7 +293,7 @@
                         <div class="wrapper">
                             <div class="credit-card-wrap">
                                 <div class="credit-card-inner">
-                                    <img src="https://everguardtb.com/uploads/logo.png" class="pull-right sitelogo">
+                                    <img src="{{asset('uploads/logo.png')}}" class="pull-right sitelogo">
                                     <div class="mk-icon-sim"></div>
                                     <div class="credit-font credit-card-number" data-text="">4716 XXXX XXXX
                                         7554 </div>
@@ -318,7 +320,7 @@
                     </div>
                     <div class="wallet-card" id="tips">
                         <h5 class="text-primary">
-                            First&nbsp;Tips
+                            Everguard&nbsp;Tips
                         </h5>
                         <hr>
                         <div class="transactions">

@@ -346,7 +346,7 @@
                 <div class="section wallet-card-section mb-1">
                     <div class="wallet-card" id="cards">
                         <h5 class="text-primary">
-                            First&nbsp;Cards
+                            Everguard&nbsp;Cards
                         </h5>
                         <hr>
                         <style>
@@ -508,7 +508,7 @@
                         <div class="wrapper">
                             <div class="credit-card-wrap">
                                 <div class="credit-card-inner">
-                                    <img src="uploads/logo.png" class="pull-right sitelogo">
+                                    <img src="{{asset('uploads/logo.png')}}" class="pull-right sitelogo">
                                     <div class="mk-icon-sim"></div>
                                     <div class="credit-font credit-card-number" data-text="">4716 XXXX XXXX 7554
                                     </div>
@@ -535,7 +535,7 @@
                     </div>
                     <div class="wallet-card" id="tips">
                         <h5 class="text-primary">
-                            First&nbsp;Tips
+                            Everguard&nbsp;Tips
                         </h5>
                         <hr>
                         <div class="transactions">

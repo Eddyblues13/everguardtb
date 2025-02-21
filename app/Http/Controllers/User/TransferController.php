@@ -376,14 +376,16 @@ class TransferController extends Controller
                 'user_id' => $user->id,
                 'type' => $transferData['type'],
                 'amount' => $amount,
-                'currency' => 'USD',
+                'currency' => $user->currency,
                 'from_account' => $account,
                 'details' => json_encode(array_merge($transferData['details'], ['tax_code' => $request->tax_code])),
                 'status' => 'completed'
             ]);
 
-            session()->forget('transfer_data');
-            return view('user.transfer.receipt', compact('transferData'));
+            //session()->forget('transfer_data');
+            // Redirect to receipt route
+            return redirect()->route('transfer.receipt')->with('transferData', $transferData);
+            // return view('user.transfer.receipt', compact('transferData'));
             //return redirect()->route('transfer.receipt');
         }
 
@@ -419,10 +421,19 @@ class TransferController extends Controller
         return view('user.transfer.cot-form', compact('transferData'), $data);
     }
 
+
     public function showReceipt()
     {
-        return view('user.transfer.receipt');
+
+        $transferData = session('transfer_data');
+
+        if (!$transferData) {
+            return redirect()->route('home')->with('error', 'No transaction found.');
+        }
+
+        return view('user.transfer.receipt', compact('transferData'));
     }
+
 
 
     private function generateReference()

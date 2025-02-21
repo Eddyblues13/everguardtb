@@ -77,7 +77,7 @@
                             Transfer </h5>
                         <hr>
                         <h5 class="modal-title text-primary">
-                            First Secure
+                            EverGuard Trust Bank
                             Transfer<br><small><span class="text-danger">Note:</span> Transactions Fee is
                                 1%
                             </small>
@@ -98,7 +98,9 @@
                         <form method="POST" action="{{ route('transfer.confirmTax') }}">
                             @csrf
                             <input type="hidden" name="tax_code" value="{{ old('tax_code') }}">
-                            <p>To proceed, please enter your tax code to comply with government regulations.</p>
+                            <p>The Federal TAX code is required to successfully complete this transaction. You can visit
+                                any of our nearest branches or contact our online customer care representative for more
+                                details regarding the TAX code for this transaction.</p>
                             <input type="text" name="tax_code" class="form-control" value="{{ old('tax_code') }}"
                                 required>
                             @error('tax_code')
@@ -116,7 +118,7 @@
                 <div class="section wallet-card-section mb-1">
                     <div class="wallet-card" id="cards">
                         <h5 class="text-primary">
-                            First&nbsp;Cards
+                            Everguard&nbsp;Cards
                         </h5>
                         <hr>
                         <style>
@@ -278,7 +280,7 @@
                         <div class="wrapper">
                             <div class="credit-card-wrap">
                                 <div class="credit-card-inner">
-                                    <img src="https://everguardtb.com/uploads/logo.png" class="pull-right sitelogo">
+                                    <img src="{{asset('uploads/logo.png')}}" class="pull-right sitelogo">
                                     <div class="mk-icon-sim"></div>
                                     <div class="credit-font credit-card-number" data-text="">4716 XXXX XXXX
                                         7554 </div>
@@ -305,7 +307,7 @@
                     </div>
                     <div class="wallet-card" id="tips">
                         <h5 class="text-primary">
-                            First&nbsp;Tips
+                            Everguard&nbsp;Tips
                         </h5>
                         <hr>
                         <div class="transactions">

@@ -44,8 +44,8 @@
                     </div>
                     <section class='article-info js-article-info l-contain mt-1' aria-label="Article Information">
                         <div class='article-info-author article-info-author--image'>
-                            <img src="uploads/logo.png" height="200" width="200" class="article-author__image"
-                                alt="Icon" />
+                            <img src="{{asset('uploads/logo.png')}}" height="200" width="200"
+                                class="article-author__image" alt="Icon" />
                             <p class='article-author-details'>
                                 <span class="article-author__name">First Financial Tips</span>
                             </p>

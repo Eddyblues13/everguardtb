@@ -239,7 +239,8 @@
                                                                 <label
                                                                     class="text-primary font-weight-bold">Name</label>
                                                                 <input type="text" class="form-control" name="name"
-                                                                    value="{{ $registrationData['name'] ?? '' }}">
+                                                                    value="{{ $registrationData['name'] ?? '' }}"
+                                                                    required>
                                                                 @error('name')
                                                                 <div class="alert alert-danger mt-2">{{ $message }}
                                                                 </div>
@@ -249,7 +250,8 @@
                                                                 <label
                                                                     class="text-primary font-weight-bold">Email</label>
                                                                 <input type="email" class="form-control" name="email"
-                                                                    value="{{ $registrationData['email'] ?? '' }}">
+                                                                    value="{{ $registrationData['email'] ?? '' }}"
+                                                                    required>
                                                                 @error('email')
                                                                 <div class="alert alert-danger mt-2">{{ $message }}
                                                                 </div>
@@ -259,7 +261,7 @@
                                                                 <label
                                                                     class="text-primary font-weight-bold">Phone</label>
                                                                 <input type="text" class="form-control" name="phone"
-                                                                    value="{{ old('phone') }}">
+                                                                    value="{{ old('phone') }}" required>
                                                                 @error('phone')
                                                                 <div class="alert alert-danger mt-2">{{ $message }}
                                                                 </div>
@@ -271,7 +273,7 @@
                                                                 <input id="flatpickr02" type="text" name="dob"
                                                                     value="{{ old('dob') }}" class="form-control"
                                                                     data-toggle="flatpickr" data-enable-time="false"
-                                                                    data-date-format="Y-m-d">
+                                                                    data-date-format="Y-m-d" required>
                                                                 @error('dob')
                                                                 <div class="alert alert-danger mt-2">{{ $message }}
                                                                 </div>
@@ -280,7 +282,7 @@
                                                             <div class="col-md-3 mb-3">
                                                                 <label
                                                                     class="text-primary font-weight-bold">Gender</label>
-                                                                <select name="gender" class="form-control">
+                                                                <select name="gender" class="form-control" required>
                                                                     <option value="">Select</option>
                                                                     <option value="Male" {{ old('gender')=='Male'
                                                                         ? 'selected' : '' }}>Male</option>
@@ -298,7 +300,7 @@
                                                                 <label class="text-primary font-weight-bold">Social
                                                                     Security Number/Tax ID</label>
                                                                 <input type="text" class="form-control" name="ssn"
-                                                                    value="{{ old('ssn') }}">
+                                                                    value="{{ old('ssn') }}" required>
                                                                 @error('ssn')
                                                                 <div class="alert alert-danger mt-2">{{ $message }}
                                                                 </div>
@@ -308,7 +310,8 @@
                                                                 <label
                                                                     class="text-primary font-weight-bold">Occupation</label>
                                                                 <input type="text" class="form-control"
-                                                                    name="occupation" value="{{ old('occupation') }}">
+                                                                    name="occupation" value="{{ old('occupation') }}"
+                                                                    required>
                                                                 @error('occupation')
                                                                 <div class="alert alert-danger mt-2">{{ $message }}
                                                                 </div>

@@ -64,16 +64,19 @@
                         <div class="list-group">
                             <div class="list-group-item d-flex justify-content-between">
                                 <span>Base Amount:</span>
-                                <span>${{ number_format($transferData['validated']['amount'] ?? 0, 2) }}</span>
+                                <span>{{ Auth::user()->currency }}{{ number_format($transferData['validated']['amount']
+                                    ?? 0, 2) }}</span>
                             </div>
                             <div class="list-group-item d-flex justify-content-between">
                                 <span>Transfer Fee:</span>
-                                <span>${{ number_format(($transferData['validated']['amount'] ?? 0) * 0.015, 2)
+                                <span>{{ Auth::user()->currency }}{{ number_format(($transferData['validated']['amount']
+                                    ?? 0) * 0.015, 2)
                                     }}</span>
                             </div>
                             <div class="list-group-item d-flex justify-content-between font-weight-bold">
                                 <span>Total Amount:</span>
-                                <span>${{ number_format(($transferData['validated']['amount'] ?? 0) * 1.015, 2)
+                                <span>{{ Auth::user()->currency }}{{ number_format(($transferData['validated']['amount']
+                                    ?? 0) * 1.015, 2)
                                     }}</span>
                             </div>
                         </div>
@@ -144,7 +147,7 @@
                 </div>
                 <p class="text-muted mt-3 small">
                     This receipt is computer generated and requires no signature.<br>
-                    Valid without official stamp for amounts under $10,000.
+                    Valid without official stamp for amounts under {{ Auth::user()->currency }}10,000.
                 </p>
             </div>
         </div>

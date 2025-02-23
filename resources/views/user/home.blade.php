@@ -54,7 +54,7 @@
                                 <div class="balance">
                                     <span class="label">CHECKINGS</span>
                                     <h1 class="title">
-                                        {{ number_format($checking_balance, 2) }}
+                                        {{ Auth::user()->currency }}{{ number_format($checking_balance, 2) }}
                                     </h1>
                                 </div>
                                 <div class="in">

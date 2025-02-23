@@ -107,7 +107,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group basic">
-                                        <label class="label">Amount (USD)</label>
+                                        <label class="label">Amount</label>
                                         <input type="number" name="amount" class="form-control" required>
                                     </div>
                                 </div>

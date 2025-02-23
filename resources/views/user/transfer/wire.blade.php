@@ -112,7 +112,8 @@
                                     <div class="form-group basic">
                                         <label class="label">Enter Amount</label>
                                         <div class="input-group mb-2">
-                                            <span class="input-group-text text-primary">$</span>
+                                            <span class="input-group-text text-primary"> {{ Auth::user()->currency
+                                                }}</span>
                                             <input type="number" name="amount" class="form-control"
                                                 value="{{ old('amount') }}" required>
                                         </div>

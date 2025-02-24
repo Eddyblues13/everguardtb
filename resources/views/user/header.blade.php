@@ -5,15 +5,19 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-        Account | Everguard Trust Bank </title>
+    <title>Everguard Trust Bank - Secure and Reliable Banking Services</title>
     <meta property="og:title" content="Everguard Trust Bank">
     <meta name="author" content="Everguard Trust Bank">
     <meta name="description" content="Mobile Banking, Credit Cards, Mortgages, Auto Loan">
-    <meta name="keywords" content="First Citizen Bank">
+    <meta name="keywords" content="Everguard Trust Bank">
+    <meta name="description"
+        content="Everguard Trust Bank provides secure and reliable banking services. Join us today for seamless transactions and customer satisfaction." />
+    <meta name="keywords"
+        content="Everguard Trust Bank, secure banking, trusted bank, online banking, financial services" />
+
     <meta property="og:locale" content="en_US">
     <meta property="og:description" content="Mobile Banking, Credit Cards, Mortgages, Auto Loan">
-    <meta name="og:keywords" content="First Citizen Bank">
+    <meta name="og:keywords" content="Everguard Trust Bank">
     <meta property="og:url" content="https://everguardtb.com">
     <meta property="og:site_name" content="Everguard Trust Bank">
     <meta property="og:image" content="uploads/logo.png" />

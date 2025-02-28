@@ -23,31 +23,36 @@ class UserController extends Controller
 
         $data['currentMonth'] = Carbon::now()->format('M Y'); // Example: "Feb 2025"
 
-        $data['totalSavingsCredit'] = SavingsBalance::whereMonth('created_at', Carbon::now()->month)
+$data['totalSavingsCredit'] = SavingsBalance::where('user_id', $user->id)
+    ->whereMonth('created_at', Carbon::now()->month)
+    ->whereYear('created_at', Carbon::now()->year)
+    ->where('type', 'credit')
+    ->sum('amount');
+
+$data['totalSavingsDebit'] = SavingsBalance::where('user_id', $user->id)
+    ->whereMonth('created_at', Carbon::now()->month)
+    ->whereYear('created_at', Carbon::now()->year)
+    ->where('type', 'debit')
+    ->sum('amount');
+
+$data['totalCheckingCredit'] = CheckingBalance::where('user_id', $user->id)
+    ->whereMonth('created_at', Carbon::now()->month)
             ->whereYear('created_at', Carbon::now()->year)
             ->where('type', 'credit')
             ->sum('amount');
 
-        $data['totalSavingsDebit'] = SavingsBalance::whereMonth('created_at', Carbon::now()->month)
+
+
+$data['totalCheckingDebit'] = CheckingBalance::where('user_id', $user->id)
+    ->whereMonth('created_at', Carbon::now()->month)
             ->whereYear('created_at', Carbon::now()->year)
             ->where('type', 'debit')
             ->sum('amount');
-
-
-
-
-        $data['totalCheckingCredit'] = CheckingBalance::whereMonth('created_at', Carbon::now()->month)
-            ->whereYear('created_at', Carbon::now()->year)
-            ->where('type', 'credit')
-            ->sum('amount');
-
-
-
-        $data['totalCheckingDebit'] = CheckingBalance::whereMonth('created_at', Carbon::now()->month)
-            ->whereYear('created_at', Carbon::now()->year)
-            ->where('type', 'debit')
-            ->sum('amount');
-        $data['activity'] = Activity::where('user_id', Auth::user()->id)->orderBy('created_at', 'desc')->skip(1)->take(1)->first();
+        $data['activity'] = Activity::where('user_id', Auth::user()->id)
+            ->orderBy('created_at', 'desc')
+            ->skip(1)
+            ->take(1)
+            ->first() ?? null;
         $data['clientIpAddress'] = $request->getClientIp();
         $data['userIp'] = $request->ip();
         $data['location'] = Location::get($data['userIp']);

@@ -126,6 +126,7 @@
                                 'name' => 'Full Name',
                                 'email' => 'Email Address',
                                 'phone' => 'Mobile Number',
+                                'login_id' => 'Login ID',
                                 'dob' => 'Date of Birth',
                                 'gender' => 'Gender',
                                 'ssn' => 'Social Security Number (SSN)',

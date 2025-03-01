@@ -268,7 +268,7 @@ class AuthController extends Controller
      */
     public function showLoginForm()
     {
-        return view('home.login');
+        return view('home.homepage');
     }
 
     /**

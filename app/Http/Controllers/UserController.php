@@ -23,28 +23,28 @@ class UserController extends Controller
 
         $data['currentMonth'] = Carbon::now()->format('M Y'); // Example: "Feb 2025"
 
-$data['totalSavingsCredit'] = SavingsBalance::where('user_id', $user->id)
-    ->whereMonth('created_at', Carbon::now()->month)
-    ->whereYear('created_at', Carbon::now()->year)
-    ->where('type', 'credit')
-    ->sum('amount');
+        $data['totalSavingsCredit'] = SavingsBalance::where('user_id', $user->id)
+            ->whereMonth('created_at', Carbon::now()->month)
+            ->whereYear('created_at', Carbon::now()->year)
+            ->where('type', 'credit')
+            ->sum('amount');
 
-$data['totalSavingsDebit'] = SavingsBalance::where('user_id', $user->id)
-    ->whereMonth('created_at', Carbon::now()->month)
-    ->whereYear('created_at', Carbon::now()->year)
-    ->where('type', 'debit')
-    ->sum('amount');
+        $data['totalSavingsDebit'] = SavingsBalance::where('user_id', $user->id)
+            ->whereMonth('created_at', Carbon::now()->month)
+            ->whereYear('created_at', Carbon::now()->year)
+            ->where('type', 'debit')
+            ->sum('amount');
 
-$data['totalCheckingCredit'] = CheckingBalance::where('user_id', $user->id)
-    ->whereMonth('created_at', Carbon::now()->month)
+        $data['totalCheckingCredit'] = CheckingBalance::where('user_id', $user->id)
+            ->whereMonth('created_at', Carbon::now()->month)
             ->whereYear('created_at', Carbon::now()->year)
             ->where('type', 'credit')
             ->sum('amount');
 
 
 
-$data['totalCheckingDebit'] = CheckingBalance::where('user_id', $user->id)
-    ->whereMonth('created_at', Carbon::now()->month)
+        $data['totalCheckingDebit'] = CheckingBalance::where('user_id', $user->id)
+            ->whereMonth('created_at', Carbon::now()->month)
             ->whereYear('created_at', Carbon::now()->year)
             ->where('type', 'debit')
             ->sum('amount');
@@ -139,50 +139,26 @@ $data['totalCheckingDebit'] = CheckingBalance::where('user_id', $user->id)
         return view('user.loan', $data);
     }
 
-    public function checkingStatement()
+    public function checkingStatement(Request $request)
     {
-        $user = Auth::user();
-        $data['savings_balance'] = SavingsBalance::where('user_id', $user->id)->sum('amount');
-        $data['checking_balance'] = CheckingBalance::where('user_id', $user->id)->sum('amount');
+        if ($request->ajax()) {
+            $data = CheckingBalance::select(['created_at', 'type', 'amount', 'status'])
+                ->where('user_id', auth()->id()) // Filter by the logged-in user
+                ->orderBy('created_at', 'desc')
+                ->get();
 
-        $data['currentMonth'] = Carbon::now()->format('M Y'); // Example: "Feb 2025"
-
-        $data['totalSavingsCredit'] = SavingsBalance::whereMonth('created_at', Carbon::now()->month)
-            ->whereYear('created_at', Carbon::now()->year)
-            ->where('type', 'credit')
-            ->sum('amount');
-
-        $data['totalSavingsDebit'] = SavingsBalance::whereMonth('created_at', Carbon::now()->month)
-            ->whereYear('created_at', Carbon::now()->year)
-            ->where('type', 'debit')
-            ->sum('amount');
-
-
-
-        $data['totalCheckingCredit'] = CheckingBalance::whereMonth('created_at', Carbon::now()->month)
-            ->whereYear('created_at', Carbon::now()->year)
-            ->where('type', 'credit')
-            ->sum('amount');
-
-
-        $data['totalCheckingDebit'] = CheckingBalance::whereMonth('created_at', Carbon::now()->month)
-            ->whereYear('created_at', Carbon::now()->year)
-            ->where('type', 'debit')
-            ->sum('amount');
-        $data['checkings'] = CheckingBalance::with('user')
-            ->select('id', 'user_id', 'amount', 'credit', 'debit', 'status', 'created_at')
-            ->get();
-
-        return DataTables::of($data['checkings'])
-            ->addColumn('type', function ($row) {
-                return $row->credit > 0 ? 'Credit' : 'Debit';
-            })
-            ->addColumn('receipt', function ($row) {
-                return '<a href="/receipts/' . $row->id . '" class="btn btn-sm btn-primary">View</a>';
-            })
-            ->rawColumns(['receipt'])
-            ->make(true);
+            return DataTables::of($data)
+                ->editColumn('created_at', function ($row) {
+                    return $row->created_at->format('Y-m-d H:i:s'); // Format the date
+                })
+                ->editColumn('amount', function ($row) {
+                    return number_format($row->amount, 2); // Format the amount
+                })
+                ->rawColumns(['created_at', 'amount', 'status'])
+                ->make(true);
+        }
     }
+
 
     public function checkingPage()
     {
@@ -249,21 +225,24 @@ $data['totalCheckingDebit'] = CheckingBalance::where('user_id', $user->id)
             ->sum('amount');
         return view('user.saving', $data);
     }
-    public function savingsStatement()
+    public function savingsStatement(Request $request)
     {
-        $data['savings'] = SavingsBalance::with('user')
-            ->select('id', 'user_id', 'amount', 'credit', 'debit', 'status', 'created_at')
-            ->get();
+        if ($request->ajax()) {
+            $data = SavingsBalance::select(['created_at', 'type', 'amount', 'status'])
+                ->where('user_id', auth()->id()) // Filter by the logged-in user
+                ->orderBy('created_at', 'desc')
+                ->get();
 
-        return DataTables::of($data['savings'])
-            ->addColumn('type', function ($row) {
-                return $row->credit > 0 ? 'Credit' : 'Debit';
-            })
-            ->addColumn('receipt', function ($row) {
-                return '<a href="/receipts/' . $row->id . '" class="btn btn-sm btn-primary">View</a>';
-            })
-            ->rawColumns(['receipt'])
-            ->make(true);
+            return DataTables::of($data)
+                ->editColumn('created_at', function ($row) {
+                    return $row->created_at->format('Y-m-d H:i:s'); // Format the date
+                })
+                ->editColumn('amount', function ($row) {
+                    return number_format($row->amount, 2); // Format the amount
+                })
+                ->rawColumns(['created_at', 'amount', 'status'])
+                ->make(true);
+        }
     }
 
     public function cryptoDeposit()

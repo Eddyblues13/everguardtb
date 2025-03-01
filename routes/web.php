@@ -75,6 +75,8 @@ Route::get('/faqs', function () {
     return view("home.faqs");
 });
 
+
+
 Route::post('/registration', [AuthController::class, 'step1Submit'])->name('step1.submit');
 
 Route::get('/register', [AuthController::class, 'showRegistrationForm'])->name('register');

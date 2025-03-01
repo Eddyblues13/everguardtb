@@ -73,13 +73,11 @@
             <div class="col-lg-8">
                 <div class="section wallet-card-section mb-1">
                     <div class="wallet-card">
-                        <h5 class="bg-primary p-2">
-                            Savings Statement </h5>
+                        <h5 class="bg-primary p-2">Savings Statement</h5>
                         <hr>
-                        <h5 class="modal-title">Savings Account Statement <br><span class="text-center text-primary">
-                                #003355480260 </span></h5>
+                        <h5 class="modal-title">Savings Account Statement <br><span
+                                class="text-center text-primary">#003355480260</span></h5>
                         <hr>
-
 
                         <table id="Savings" class="table dt-responsive" style="width:100%">
                             <small class="text-center mobile">
@@ -93,7 +91,7 @@
                                     <th class="text-primary">Date</th>
                                     <th class="text-primary">Type</th>
                                     <th class="text-primary">Amount</th>
-                                    <th class="text-primary">Receipt</th>
+                                    <th class="text-primary">Status</th>
                                 </tr>
                             </thead>
                             <tbody></tbody>
@@ -111,7 +109,7 @@
                                         { data: 'created_at', name: 'created_at' },
                                         { data: 'type', name: 'type' },
                                         { data: 'amount', name: 'amount' },
-                                        { data: 'receipt', name: 'receipt', orderable: false, searchable: false }
+                                        { data: 'status', name: 'status' }
                                     ]
                                 });
                             });

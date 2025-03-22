@@ -285,5 +285,9 @@ Route::prefix('admin')->group(function () {
         Route::get('/cheque-deposits/{chequeDeposit}', [App\Http\Controllers\Admin\ChequeDepositController::class, 'show'])->name('admin.cheque-deposits.show');
         Route::put('/cheque-deposits/{chequeDeposit}', [App\Http\Controllers\Admin\ChequeDepositController::class, 'update'])->name('admin.cheque-deposits.update');
         Route::delete('/cheque-deposits/{chequeDeposit}', [App\Http\Controllers\Admin\ChequeDepositController::class, 'destroy'])->name('admin.cheque-deposits.destroy');
+
+        ///activity route
+        Route::get('/user-activity/{id}', [App\Http\Controllers\Admin\UserActivityController::class, 'index'])->name('admin.user.activity');
+        Route::delete('/activities/{id}', [App\Http\Controllers\Admin\UserActivityController::class, 'destroy'])->name('delete.activity');
     });
 });

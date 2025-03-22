@@ -14,4 +14,9 @@ class Activity extends Model
         'last_login_user_agent',
 
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

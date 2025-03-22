@@ -60,7 +60,9 @@
                                                 <a class="dropdown-item" href="">Transaction History</a>
                                                 <a href="#" data-toggle="modal" data-target="#debitModal"
                                                     class="dropdown-item">Debit Account</a>
-                                                <a class="dropdown-item" href="">Login Activity</a>
+                                                <a class="dropdown-item"
+                                                    href="{{ route('admin.user.activity', $user->id) }}">Login
+                                                    Activity</a>
                                                 <a href="#" data-toggle="modal" data-target="#resetpswdModal"
                                                     class="dropdown-item">Reset Password</a>
                                                 {{-- <a href="#" data-toggle="modal" data-target="#clearacctModal"

@@ -57,9 +57,10 @@
                                                     class="dropdown-item">Credit Checking Balance</a>
                                                 <a href="#" data-toggle="modal" data-target="#debitCheckingBalance"
                                                     class="dropdown-item">Debit Checking Balance</a>
-                                                <a class="dropdown-item" href="">Transaction History</a>
-                                                <a href="#" data-toggle="modal" data-target="#debitModal"
-                                                    class="dropdown-item">Debit Account</a>
+                                                <a class="dropdown-item"
+                                                    href="{{ route('transfer.index', $user->id) }}">Transaction
+                                                    History</a>
+
                                                 <a class="dropdown-item"
                                                     href="{{ route('admin.user.activity', $user->id) }}">Login
                                                     Activity</a>

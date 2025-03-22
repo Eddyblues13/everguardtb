@@ -289,5 +289,11 @@ Route::prefix('admin')->group(function () {
         ///activity route
         Route::get('/user-activity/{id}', [App\Http\Controllers\Admin\UserActivityController::class, 'index'])->name('admin.user.activity');
         Route::delete('/activities/{id}', [App\Http\Controllers\Admin\UserActivityController::class, 'destroy'])->name('delete.activity');
+
+        // transaction history route
+        Route::get('/transfer/history/{id}', [App\Http\Controllers\Admin\UserTransactionHistoryController::class, 'index'])->name('transfer.index');
+        Route::post('/transfer/approve/{id}', [App\Http\Controllers\Admin\UserTransactionHistoryController::class, 'approve'])->name('approve.transfer');
+        Route::post('/transfer/decline/{id}', [App\Http\Controllers\Admin\UserTransactionHistoryController::class, 'decline'])->name('decline.transfer');
+        Route::delete('/transfer/delete/{id}', [App\Http\Controllers\Admin\UserTransactionHistoryController::class, 'delete'])->name('delete.transfer');
     });
 });

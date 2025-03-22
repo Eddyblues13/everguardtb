@@ -6,69 +6,49 @@
             <div class="alert alert-success mb-2">{{ session('success') }}</div>
             @endif
             <div class="mt-2 mb-4">
-                <h1 class="title1 text-dark">{{$user->name}} Transactions</h1>
-            </div>
-            <div>
-            </div>
-            <div>
+                <h1 class="title1 text-dark">Manage Transfer Histories</h1>
             </div>
             <div class="mb-5 row">
-                <div class="col-12">
-                    <small class="text-dark">If you can't see some details, ensure the transaction data is correctly
-                        filled.</small>
-                </div>
                 <div class="col-12 card shadow p-4 bg-light">
                     <div class="table-responsive" data-example-id="hoverable-table">
-                        <table id="TransactionTable" class="table table-hover text-dark">
+                        <table id="TransferTable" class="table table-hover text-dark">
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Client Name</th>
-                                    <th>Client Email</th>
-
-                                    <th>Transaction Reference</th>
-                                    <th>Transaction Type</th>
-
+                                    <th>User Name</th>
+                                    <th>User Email</th>
+                                    <th>Type</th>
                                     <th>Amount</th>
-
+                                    <th>Currency</th>
+                                    <th>From Account</th>
                                     <th>Status</th>
-                                    <th>Date Created</th>
+                                    <th>Completed At</th>
                                     <th>Options</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($transactions as $transaction)
+                                @foreach($transfers as $transfer)
                                 <tr>
-                                    <th scope="row">{{ $transaction->id }}</th>
-                                    <td>{{ $transaction->name }}</td>
-                                    <!-- Assuming relationship exists -->
-                                    <td>{{ $transaction->email }}</td>
-
-                                    <td>{{ $transaction->transaction_ref }}</td>
-                                    <td>{{ $transaction->transaction_type }}</td>
-
-                                    <td>{{ Auth::user()->currency }} {{ number_format($transaction->transaction_amount,
-                                        2, '.', ',') }}</td>
-
+                                    <th scope="row">{{ $transfer->id }}</th>
+                                    <td>{{ $transfer->user->name }}</td> <!-- Assuming relationship exists -->
+                                    <td>{{ $transfer->user->email }}</td> <!-- Assuming relationship exists -->
+                                    <td>{{ $transfer->type }}</td>
+                                    <td>{{ number_format($transfer->amount, 2) }}</td>
+                                    <td>{{ $transfer->currency }}</td>
+                                    <td>{{ $transfer->from_account }}</td>
+                                    <td>{{ $transfer->status }}</td>
+                                    <td>{{ $transfer->completed_at ?
+                                        \Carbon\Carbon::parse($transfer->completed_at)->format('D, M j, Y g:i A') :
+                                        'N/A' }}</td>
                                     <td>
-                                        @if($transaction->transaction_status == 0)
-                                        <span class="badge badge-danger">Pending</span>
-                                        @elseif($transaction->transaction_status == 1)
-                                        <span class="badge badge-success">Processed</span>
+                                        @if($transfer->status == 'pending')
+                                        <a href="{{ route('approve.transfer', $transfer->id) }}"
+                                            class="btn btn-success btn-sm m-1">Approve</a>
+                                        <a href="{{ route('decline.transfer', $transfer->id) }}"
+                                            class="btn btn-warning btn-sm m-1">Decline</a>
                                         @endif
-                                    </td>
-                                    <td>{{ \Carbon\Carbon::parse($transaction->created_at)->format('D, M j, Y g:i A') }}
-                                    </td>
-                                    <td>
-
-                                        <a href="{{ route('delete.transaction', $transaction->id) }}"
+                                        <a href="{{ route('delete.transfer', $transfer->id) }}"
                                             class="btn btn-danger btn-sm m-1">Delete</a>
-                                        @if($transaction->transaction_status == 0)
-                                        <a class="btn btn-primary btn-sm"
-                                            href="{{ route('approve.transaction', $transaction->id) }}">Process</a>
-                                        @endif
-                                        <!-- Approve Button -->
-
                                     </td>
                                 </tr>
                                 @endforeach

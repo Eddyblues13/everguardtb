@@ -97,7 +97,7 @@
                                                 Savings (***0260) - {{ Auth::user()->currency }} {{
                                                 number_format($savings_balance, 2) }}
                                             </option>
-                                            <option value="checking" {{ old('account')=='checking' ? 'selected' : '' }}>
+                                             <option value="checking" {{ old('account')=='checking' ? 'selected' : '' }}>
                                                 Checking (***0942) - {{ Auth::user()->currency }} {{
                                                 number_format($checking_balance, 2) }}
                                             </option>

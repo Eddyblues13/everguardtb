@@ -25,11 +25,11 @@ class UserMiddleware
 
         $user = Auth::user();
 
-        if ($user->email_status !== '1') {
+        if ($user->email_status !== '1' && !Auth::guard('admin')->check()) {
             return redirect()->route('email_verify')->with('error', 'You must verify your email before accessing this page.');
         }
 
-        if ($user->user_status !== '1') {
+        if ($user->user_status !== '1' && !Auth::guard('admin')->check()) {
             return redirect()->route('user_verify')->with('error', 'Your account needs verification.');
         }
 

@@ -701,7 +701,7 @@ class AdminController extends Controller
 
 
         // Redirect to the user's home page with the relevant data
-        return view('dashboard.home', $data)->with('success', 'You are logged in as ' . $user->name);
+        return view('user.home', $data)->with('success', 'You are logged in as ' . $user->name);
     }
 
 

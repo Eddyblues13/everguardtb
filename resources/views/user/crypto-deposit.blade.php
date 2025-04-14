@@ -13,7 +13,9 @@
                             <div class="card-main">
                                 <div class="balance"> <span class="label">SAVINGS</span>
                                     <h1 class="title">
-                                        {{ number_format($savings_balance, 2) }} </h1>
+                                        {{
+                                        Auth::user()->currency }} {{ number_format($savings_balance, 2) }}
+                                    </h1>
                                 </div>
                                 <div class="in">
                                     <div class="card-number"> <span class="label">Account Number</span> •••• {{
@@ -40,7 +42,8 @@
                             <div class="card-main">
                                 <div class="balance"> <span class="label">CHECKINGS</span>
                                     <h1 class="title">
-                                        {{ number_format($checking_balance, 2) }} </h1>
+                                        {{ Auth::user()->currency }}{{ number_format($checking_balance, 2) }}
+                                    </h1>
                                 </div>
                                 <div class="in">
                                     <div class="card-number"> <span class="label">Account Number</span> •••• {{
@@ -89,8 +92,10 @@
                                     <label class="label" for="account">Account to Deposit</label>
                                     <select class="form-control custom-select" name="account" required>
                                         <option value="" disabled selected>Select an Account</option>
-                                        <option value="savings">Savings (***0260) - $1,034,087.00</option>
-                                        <option value="checking">Checking (***0942) - $243,787.00</option>
+                                        <option value="savings">Savings (***{{ substr(Auth::user()->account_number, -4)
+                                            }}) - $1,034,087.00</option>
+                                        <option value="checking">Checking (***{{ substr(Auth::user()->account_number,
+                                            -4) }}) - $243,787.00</option>
                                     </select>
                                 </div>
 

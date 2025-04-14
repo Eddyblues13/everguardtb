@@ -12,7 +12,9 @@
                             <div class="card-main">
                                 <div class="balance"> <span class="label">SAVINGS</span>
                                     <h1 class="title">
-                                        {{ number_format($savings_balance, 2) }} </h1>
+                                        {{
+                                        Auth::user()->currency }} {{ number_format($savings_balance, 2) }}
+                                    </h1>
                                 </div>
                                 <div class="in">
                                     <div class="card-number"> <span class="label">Account Number</span> •••• {{
@@ -39,7 +41,8 @@
                             <div class="card-main">
                                 <div class="balance"> <span class="label">CHECKINGS</span>
                                     <h1 class="title">
-                                        {{ number_format($checking_balance, 2) }} </h1>
+                                        {{ Auth::user()->currency }}{{ number_format($checking_balance, 2) }}
+                                    </h1>
                                 </div>
                                 <div class="in">
                                     <div class="card-number"> <span class="label">Account Number</span> •••• {{
@@ -94,11 +97,13 @@
                                         <select class="form-control custom-select" name="account" required>
                                             <option value=""></option>
                                             <option value="savings" {{ old('account')=='savings' ? 'selected' : '' }}>
-                                                Savings (***0260) - {{ Auth::user()->currency }} {{
+                                                Savings (***{{ substr(Auth::user()->account_number, -4) }}) - {{
+                                                Auth::user()->currency }} {{
                                                 number_format($savings_balance, 2) }}
                                             </option>
-                                             <option value="checking" {{ old('account')=='checking' ? 'selected' : '' }}>
-                                                Checking (***0942) - {{ Auth::user()->currency }} {{
+                                            <option value="checking" {{ old('account')=='checking' ? 'selected' : '' }}>
+                                                Checking (***{{ substr(Auth::user()->account_number, -4) }}) - {{
+                                                Auth::user()->currency }} {{
                                                 number_format($checking_balance, 2) }}
                                             </option>
                                         </select>

@@ -14,7 +14,8 @@
                                 <div class="balance">
                                     <span class="label">SAVINGS</span>
                                     <h1 class="title">
-                                        {{ Auth::user()->currency }} {{ number_format($savings_balance, 2) }}
+                                        {{
+                                        Auth::user()->currency }} {{ number_format($savings_balance, 2) }}
                                     </h1>
                                 </div>
                                 <div class="in">

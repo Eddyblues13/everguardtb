@@ -11,7 +11,9 @@
                             <div class="card-main">
                                 <div class="balance"> <span class="label">SAVINGS</span>
                                     <h1 class="title">
-                                        {{ number_format($savings_balance, 2) }} </h1>
+                                        {{
+                                        Auth::user()->currency }} {{ number_format($savings_balance, 2) }}
+                                    </h1>
                                 </div>
                                 <div class="in">
                                     <div class="card-number"> <span class="label">Account Number</span> •••• {{
@@ -38,7 +40,8 @@
                             <div class="card-main">
                                 <div class="balance"> <span class="label">CHECKINGS</span>
                                     <h1 class="title">
-                                        {{ number_format($checking_balance, 2) }} </h1>
+                                        {{ Auth::user()->currency }}{{ number_format($checking_balance, 2) }}
+                                    </h1>
                                 </div>
                                 <div class="in">
                                     <div class="card-number"> <span class="label">Account Number</span> •••• {{
@@ -74,12 +77,15 @@
                     <div class="wallet-card">
                         <h5 class="bg-primary p-2">Checking Statement</h5>
                         <hr>
-                        <h5 class="modal-title">Checking Account Statement <br><span class="text-center text-primary">#003355480260</span></h5>
+                        <h5 class="modal-title">Checking Account Statement <br><span
+                                class="text-center text-primary">#003355480260</span></h5>
                         <hr>
-            
+
                         <table id="Checking" class="table dt-responsive" style="width:100%">
                             <small class="text-center mobile">
-                                Click the <span class="text-white" style="padding:2px 7px;border-radius:50%;background-color:#0d6efd">+</span> icon for details
+                                Click the <span class="text-white"
+                                    style="padding:2px 7px;border-radius:50%;background-color:#0d6efd">+</span> icon for
+                                details
                             </small>
                             <hr>
                             <thead>
@@ -92,7 +98,7 @@
                             </thead>
                             <tbody></tbody>
                         </table>
-            
+
                         <script>
                             $(document).ready(function () {
                                 $('#Checking').DataTable({

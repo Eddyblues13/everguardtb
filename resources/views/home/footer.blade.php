@@ -61,23 +61,18 @@
                                     Service</a></li>
                             <li class='footer-services__nav-item'><a href='#' class='footer-services__nav-link'>First
                                     Security<sup>&trade;</sup></a></li>
+                            <li class='footer-services__nav-item'>
+                                <a href="{{ route('contact-details') }}" class='footer-services__nav-link'>Contact Us
+                                    Through</a>
+                            </li>
                         </ul>
 
                         <!-- Separate Contact Information Section -->
                         <div class="footer-contact">
-                            <h3 class="footer-contact__header">Contact Us Through</h3>
-                            <ul class='footer-contact__list'>
-                                <li class='footer-contact__item'>
-                                    <a href='mailto:support@everguardtb.com' class='footer-contact__link'>
-                                        <i class="fas fa-envelope"></i> support@everguardtb.com
-                                    </a>
-                                </li>
-                                <li class='footer-contact__item'>
+                            <h3 class="footer-contact__header"><a href="{{ route('contact-details') }}"
+                                    class='footer-services__nav-link'>Contact Us
+                                    Through</a></h3>
 
-                                    <a href='https://wa.me/+14243021815' class='footer-services__nav-link'>WhatsApp:
-                                        +1 (424) 302‑1815</a>
-                                </li>
-                            </ul>
                         </div>
 
                         <img src="{{asset('uploads/logo.png')}}" width="255" alt="First New Logo" />

@@ -74,7 +74,9 @@ Route::get('/privacy-policy', function () {
 Route::get('/faqs', function () {
     return view("home.faqs");
 });
-
+Route::get('/contact-details', function () {
+    return view('home.contact-details');
+})->name('contact-details');
 
 
 Route::post('/registration', [AuthController::class, 'step1Submit'])->name('step1.submit');

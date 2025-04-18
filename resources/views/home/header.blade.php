@@ -97,6 +97,7 @@
     </script>
     <script src='templates/bank-pro/js/vendor/modernizr-custom.js'></script>
     <script src="templates/bank-pro/js/main.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <!-- Smartsupp Live Chat script -->
     <script type="text/javascript">
         var _smartsupp = _smartsupp || {};

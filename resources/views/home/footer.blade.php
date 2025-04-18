@@ -53,8 +53,7 @@
             <div class='l-footer-inner--right'>
                 <div class='l-footer__services'>
                     <div class='footer-services'>
-                        <h2 class="footer-services__header"><a href="#">Member Services</a>
-                        </h2>
+                        <h2 class="footer-services__header"><a href="#">Member Services</a></h2>
                         <ul class='footer-services__nav'>
                             <li class='footer-services__nav-item'><a href='#' class='footer-services__nav-link'>Loan
                                     Payments</a></li>
@@ -62,9 +61,10 @@
                                     Service</a></li>
                             <li class='footer-services__nav-item'><a href='#' class='footer-services__nav-link'>First
                                     Security<sup>&trade;</sup></a></li>
-
                             <li class='footer-services__nav-item'><a href='mailto:support@everguardtb.com'
-                                    class='footer-services__nav-link'>Email Us</a></li>
+                                    class='footer-services__nav-link'>Email: support@everguardtb.com</a></li>
+                            <li class='footer-services__nav-item'><a href='https://wa.me/+14243021815'
+                                    class='footer-services__nav-link'>WhatsApp: +1 (424) 302‑1815</a></li>
                         </ul>
                         <img src="{{asset('uploads/logo.png')}}" width="255" alt="First New Logo" />
                         <hr>
@@ -72,8 +72,7 @@
                             <ul class='footer-nav__links'>
                                 <li class='footer-nav__item'><a href='#' class='footer-nav__link'>Location</a></li>
                                 <li class='footer-nav__item'><a href='#' class='footer-nav__link'>239 Fayetteville St.
-                                        Raleigh, NC 27601.</a></li>
-
+                                        Raleigh, NC 27601. 4031 E 42nd St, Odessa, TX 79762, USA</a></li>
                             </ul>
                         </div>
                     </div>

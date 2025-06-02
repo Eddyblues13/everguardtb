@@ -36,8 +36,8 @@
 
                                     <div>
                                         <h3 style="margin: 0 0 0.25rem 0; font-size: 1rem;">WhatsApp</h3>
-                                        <p style="margin: 0;"><a href="https://wa.me/+14243021815"
-                                                style="color: #0066cc;">+1 (424) 302-1815</a></p>
+                                        <p style="margin: 0;"><a href="https://wa.me/+17693490491"
+                                                style="color: #0066cc;">+1 (769) 349‑0491</a></p>
                                     </div>
                                 </div>
 
